@@ -1,4 +1,11 @@
 services:
+
+  cuentadb:
+    image: mcr.microsoft.com/mssql/server
+
+  clientedb:
+    image: mcr.microsoft.com/mssql/server
+
   cuentaapi:
     image: ${DOCKER_REGISTRY-}cuentaapi
     build:
@@ -11,3 +18,7 @@ services:
       context: .
       dockerfile: ClienteAPI/Dockerfile
 
+volumes:
+  data_cuenta: 
+  data_cliente:
+    

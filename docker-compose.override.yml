@@ -1,23 +1,51 @@
 services:
+
+  cuentadb:
+    container_name: cuentadb
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=cuenta@Passw0rd
+    restart: 
+       always
+    ports:
+      - "14333:1433"
+    volumes:
+      - data_cliente:/var/opt/mssql
+      - ./CuentaAPI:/docker-entrypoint-initdb.d
+    command: [ "/bin/bash", "/docker-entrypoint-initdb.d/entrypoint.sh" ]
+
+  clientedb:
+    container_name: clientedb
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=cliente@Passw0rd
+    restart: 
+       always
+    ports:
+      - "14334:1433"
+
   cuentaapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=cuentadb;Database=cuentas_servicio;User Id=sa;Password=cuenta@Passw0rd;Encrypt=False;TrustServerCertificate=True;
     ports:
-      - "8080"
-      - "8081"
+      - "6000:8080"
+      - "6010:8081"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
   clienteapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=clientedb;Database=clientes_servicio;User Id=sa;Password=cliente@Passw0rd;Encrypt=False;TrustServerCertificate=True;
     ports:
-      - "8080"
-      - "8081"
+      - "6001:8080"
+      - "6061:8081"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
