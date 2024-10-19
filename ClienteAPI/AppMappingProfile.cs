@@ -1,4 +1,4 @@
-﻿using AppShared.Messages;
+﻿using SystemApp.Shared.Messages;
 using AutoMapper;
 using ClienteAPI.Contracts;
 using ClienteAPI.Models;

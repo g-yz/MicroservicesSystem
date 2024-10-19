@@ -1,4 +1,4 @@
-﻿using AppShared.Messages;
+﻿using SystemApp.Shared.Messages;
 using CuentaAPI.Repositories;
 using MassTransit;
 using Microsoft.Extensions.Logging;

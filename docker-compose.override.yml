@@ -13,7 +13,7 @@ services:
       - data_cuenta:/var/opt/mssql
     healthcheck:
       test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "cuentadb", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
-      interval: 10s
+      interval: 15s
       timeout: 5s
       retries: 5
 
@@ -30,7 +30,7 @@ services:
       - data_cliente:/var/opt/mssql
     healthcheck:
       test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "clientedb", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
-      interval: 10s
+      interval: 15s
       timeout: 5s
       retries: 5
 

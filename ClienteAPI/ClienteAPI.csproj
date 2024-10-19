@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AppShared\AppShared.csproj" />
+    <ProjectReference Include="..\SystemApp.Shared\SystemApp.Shared.csproj" />
   </ItemGroup>
 
 </Project>

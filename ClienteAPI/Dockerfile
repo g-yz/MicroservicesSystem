@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ClienteAPI/ClienteAPI.csproj", "ClienteAPI/"]
+COPY ["SystemApp.Shared/SystemApp.Shared.csproj", "SystemApp.Shared/"]
 RUN dotnet restore "./ClienteAPI/ClienteAPI.csproj"
 COPY . .
 WORKDIR "/src/ClienteAPI"
