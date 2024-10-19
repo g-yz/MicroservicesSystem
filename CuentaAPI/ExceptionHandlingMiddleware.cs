@@ -96,6 +96,7 @@ public class ExceptionHandlingMiddleware
         return context.Response.WriteAsJsonAsync(errors);
     }
 }
+
 public class NotFoundException : Exception
 {
     public NotFoundException(string message) : base(message) { }

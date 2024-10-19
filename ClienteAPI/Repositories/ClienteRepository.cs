@@ -20,7 +20,7 @@ public class ClienteRepository : IClienteRepository
     public async Task<bool> DeleteAsync(Guid id)
     {
         var cliente = await _context.Clientes.FindAsync(id);
-        if(cliente == null) return false;
+        if(cliente == null) throw new NotFoundException("El cliente no existe.");
         cliente.Estado = false;
         var result = await _context.SaveChangesAsync();
         return result > 0;

@@ -39,7 +39,9 @@ public class ClienteService : IClienteService
 
     public async Task<ClienteGetResponse> GetAsync(Guid id)
     {
-        return _mapper.Map<ClienteGetResponse>(await _clienteRepository.GetAsync(id));
+        var cliente = await _clienteRepository.GetAsync(id);
+        if (cliente == null) throw new NotFoundException("El cliente no existe.");
+        return _mapper.Map<ClienteGetResponse>(cliente);
     }
 
     public async Task<IEnumerable<ClienteGetResponse>> ListAsync()
@@ -53,7 +55,7 @@ public class ClienteService : IClienteService
         if (result.Errors.Any()) throw new ValidationException(result.Errors);
 
         var cliente = await _clienteRepository.GetAsync(id);
-        if (cliente == null) return false;
+        if (cliente == null) throw new NotFoundException("El cliente no existe.");
         _mapper.Map(clienteUpdateRequest, cliente);
         return await _clienteRepository.UpdateAsync(id, cliente);
     }

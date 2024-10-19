@@ -23,6 +23,10 @@ public class ExceptionHandlingMiddleware
         {
             await HandleValidationExceptionAsync(context, ex);
         }
+        catch (NotFoundException ex)
+        {
+            await HandleNotFoundExceptionAsync(context, ex);
+        }
         catch (Exception ex)
         {
             await HandleGenericExceptionAsync(context, ex);
@@ -43,6 +47,20 @@ public class ExceptionHandlingMiddleware
 
         return context.Response.WriteAsJsonAsync(errors);
     }
+    private Task HandleNotFoundExceptionAsync(HttpContext context, NotFoundException ex)
+    {
+        context.Response.ContentType = "application/json";
+        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+
+        var errors = new
+        {
+            context.Response.StatusCode,
+            Message = "Validation failed",
+            Errors = ex.Message
+        };
+
+        return context.Response.WriteAsJsonAsync(errors);
+    }
 
     private Task HandleGenericExceptionAsync(HttpContext context, Exception ex)
     {
@@ -58,4 +76,9 @@ public class ExceptionHandlingMiddleware
 
         return context.Response.WriteAsJsonAsync(errors);
     }
+}
+
+public class NotFoundException : Exception
+{
+    public NotFoundException(string message) : base(message) { }
 }
