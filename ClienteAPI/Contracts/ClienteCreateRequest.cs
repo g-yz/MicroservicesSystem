@@ -10,7 +10,7 @@ public class ClienteCreateRequest
 
     public required string Password { get; set; }
 
-    public bool Estado { get; set; }
+    public bool Estado { get; set; } = true;
 
     public string? Identificacion { get; set; }
 
