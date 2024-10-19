@@ -41,8 +41,8 @@ services:
     environment:
       - MSSQL_SA_PASSWORD=Passw0rd@Passw0rd
     volumes:
-      - ./AccountApp.Api/Db:/docker-entrypoint-initdb.d/AccountApp.Api/Db
-      - ./ClientApp.Api/Db:/docker-entrypoint-initdb.d/ClientApp.Api/Db
+      - ./AccountApp.Data/Db:/docker-entrypoint-initdb.d/AccountApp.Data/Db
+      - ./ClientApp.Data/Db:/docker-entrypoint-initdb.d/ClientApp.Data/Db
       - ./entrypoint.sh:/docker-entrypoint-initdb.d/entrypoint.sh
     command: /bin/bash /docker-entrypoint-initdb.d/entrypoint.sh
 

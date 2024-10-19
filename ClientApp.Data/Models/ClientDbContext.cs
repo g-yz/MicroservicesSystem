@@ -33,10 +33,10 @@ public partial class ClientDbContext : DbContext
             entity.Property(e => e.Id)
                 .HasDefaultValueSql("(newid())")
                 .HasColumnName("id");
-            entity.Property(e => e.Password)
+            entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .IsUnicode(false)
-                .HasColumnName("password");
+                .HasColumnName("email");
             entity.Property(e => e.Status).HasColumnName("status");
 
             entity.HasOne(d => d.IdNavigation).WithOne(p => p.Client)

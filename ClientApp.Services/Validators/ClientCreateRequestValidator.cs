@@ -17,10 +17,11 @@ public class ClientCreateRequestValidator : AbstractValidator<ClientCreateReques
             .NotEmpty()
             .Length(8, 16)
             .Matches(@"^[0-9\-\+\(\) .]+$")
-            .WithMessage("Numero de account solo deberia tener entre 0 y 16 caracteres y solo contener numeros y simbolos(- + ())");
-        RuleFor(user => user.Password)
+            .WithMessage("Account number should only be between 0 and 16 characters long and only contain numbers and symbols(- + ())");
+        RuleFor(user => user.Email)
             .NotEmpty()
-            .Length(8, 16);
+            .Length(8, 16)
+            .EmailAddress();
         RuleFor(user => user.Document)
             .Length(8, 24);
         RuleFor(user => user.TypeGenderId)

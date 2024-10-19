@@ -18,7 +18,7 @@ public class ClientAppntegrationTests
             FullName = "Juan Perez",
             Address = "123 Main St",
             Phone = "999-555-1234",
-            Password = "password-seguro",
+            Email = "email@mail.com",
             Status = true,
             Document = "123456789",
             Years = 30,

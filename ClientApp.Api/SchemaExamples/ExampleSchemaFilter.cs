@@ -13,10 +13,10 @@ public class ExampleSchemaFilter : ISchemaFilter
         {
             schema.Example = new OpenApiObject
             {
-                ["fullnames"] = new OpenApiString("Juan Perez"),
+                ["fullname"] = new OpenApiString("Juan Perez"),
                 ["address"] = new OpenApiString("123 Calle Sur"),
                 ["phone"] = new OpenApiString("999-555-1234"),
-                ["password"] = new OpenApiString("MiPassword"),
+                ["email"] = new OpenApiString("myemail@mail.com"),
                 ["document"] = new OpenApiString("AB123456"),
                 ["years"] = new OpenApiInteger(20),
                 ["typeGenderId"] = new OpenApiInteger(1)
@@ -27,10 +27,10 @@ public class ExampleSchemaFilter : ISchemaFilter
             schema.Example = new OpenApiObject
             {
 
-                ["fullnames"] = new OpenApiString("Meria Perez"),
+                ["fullname"] = new OpenApiString("Meria Perez"),
                 ["address"] = new OpenApiString("123 Calle Sur"),
                 ["phone"] = new OpenApiString("999-555-1234"),
-                ["password"] = new OpenApiString("MiPasswordSeguro"),
+                ["email"] = new OpenApiString("mymail@mail.com"),
                 ["status"] = new OpenApiBoolean(true),
                 ["document"] = new OpenApiString("CD123456"),
                 ["years"] = new OpenApiInteger(25),

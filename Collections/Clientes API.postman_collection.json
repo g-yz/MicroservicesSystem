@@ -83,7 +83,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n    \"id\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\",\n    \"fullnames\": \"Meria Perez\",\n    \"address\": \"123 Calle Sur\",\n    \"phone\": \"999-555-1234\",\n    \"password\": \"MiPasswordSeguro\",\n    \"status\": false,\n    \"document\": \"CD123456\",\n    \"years\": 25,\n    \"genero\": \"Masculino\"\n}"
+											"body": "{\n    \"id\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\",\n    \"fullname\": \"Meria Perez\",\n    \"address\": \"123 Calle Sur\",\n    \"phone\": \"999-555-1234\",\n    \"email\": \"Email@mail.com\",\n    \"status\": false,\n    \"document\": \"CD123456\",\n    \"years\": 25,\n    \"genero\": \"Masculino\"\n}"
 										},
 										{
 											"name": "Bad Request",
@@ -213,7 +213,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"fullnames\": \"Meria Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"password\": \"MiPasswordSeguro\",\n  \"status\": true,\n  \"document\": \"CD123456\",\n  \"years\": 25,\n  \"typeGenderId\": 1\n}",
+											"raw": "{\n  \"fullname\": \"Meria Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"email\": \"Email@mail.com\",\n  \"status\": true,\n  \"document\": \"CD123456\",\n  \"years\": 25,\n  \"typeGenderId\": 1\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -257,7 +257,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"fullnames\": \"Meria Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"password\": \"MiPasswordSeguro\",\n  \"status\": true,\n  \"document\": \"CD123456\",\n  \"years\": 25,\n  \"typeGenderId\": 2\n}",
+													"raw": "{\n  \"fullname\": \"Meria Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"email\": \"Email@mail.com\",\n  \"status\": true,\n  \"document\": \"CD123456\",\n  \"years\": 25,\n  \"typeGenderId\": 2\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -311,7 +311,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"fullnames\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
+													"raw": "{\n  \"fullname\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -365,7 +365,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"fullnames\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
+													"raw": "{\n  \"fullname\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -415,7 +415,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"fullnames\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
+													"raw": "{\n  \"fullname\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -685,7 +685,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"fullnames\": \"<string>\",\n    \"address\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"password\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"document\": \"<string>\",\n    \"years\": \"<integer>\",\n    \"genero\": \"<string>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"fullnames\": \"<string>\",\n    \"address\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"password\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"document\": \"<string>\",\n    \"years\": \"<integer>\",\n    \"genero\": \"<string>\"\n  }\n]"
+									"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"fullname\": \"<string>\",\n    \"address\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"document\": \"<string>\",\n    \"years\": \"<integer>\",\n    \"genero\": \"<string>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"fullname\": \"<string>\",\n    \"address\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<string>\",\n    \"status\": \"<boolean>\",\n    \"document\": \"<string>\",\n    \"years\": \"<integer>\",\n    \"genero\": \"<string>\"\n  }\n]"
 								},
 								{
 									"name": "Bad Request",
@@ -794,7 +794,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"fullnames\": \"Juan Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"password\": \"MiPassword\",\n  \"document\": \"AB123456\",\n  \"years\": 20,\n  \"typeGenderId\": 1\n}",
+									"raw": "{\n  \"fullname\": \"Juan Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"email\": \"Taail@mail.com\",\n  \"document\": \"AB123456\",\n  \"years\": 20,\n  \"typeGenderId\": 1\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -830,7 +830,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"fullnames\": \"Juan Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"password\": \"MiPassword\",\n  \"document\": \"AB123456\",\n  \"years\": 20,\n  \"typeGenderId\": 1\n}",
+											"raw": "{\n  \"fullname\": \"Juan Perez\",\n  \"address\": \"123 Calle Sur\",\n  \"phone\": \"999-555-1234\",\n  \"email\": \"Taail@mail.com\",\n  \"document\": \"AB123456\",\n  \"years\": 20,\n  \"typeGenderId\": 1\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -877,7 +877,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"fullnames\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
+											"raw": "{\n  \"fullname\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -924,7 +924,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"fullnames\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
+											"raw": "{\n  \"fullname\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -967,7 +967,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"fullnames\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
+											"raw": "{\n  \"fullname\": \"<string>\",\n  \"address\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"status\": \"<boolean>\",\n  \"document\": \"<string>\",\n  \"years\": \"<integer>\",\n  \"typeGenderId\": \"<integer>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",

@@ -5,7 +5,7 @@ namespace ClientApp.Data.Models;
 
 public partial class Client: Person
 {
-    public string Password { get; set; } = null!;
+    public string Email { get; set; } = null!;
 
     public bool Status { get; set; }
 

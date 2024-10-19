@@ -42,7 +42,7 @@ public class ClientAppUnitTests
             FullName = "John Doe",
             Address = "123 Main St",
             Phone = "123-456-7890",
-            Password = "password123"
+            Email = "email123@mail.com"
         };
 
         var client = new Client { Id = Guid.NewGuid() };
@@ -91,7 +91,7 @@ public class ClientAppUnitTests
                 FullName = "John Doe",
                 Address = "123 Main St",
                 Phone = "123-456-7890",
-                Password = "password",
+                Email = "email",
                 Gender = "1",
             },
             new ClientGetResponse
@@ -100,7 +100,7 @@ public class ClientAppUnitTests
                 FullName = "Jane Doe",
                 Address = "456 Main St",
                 Phone = "987-654-3210",
-                Password = "password",
+                Email = "email",
                 Gender = "1",
             }
         };
@@ -152,7 +152,7 @@ public class ClientAppUnitTests
             FullName = "John Doe",
             Address = "123 Main St",
             Phone = "123-456-7890",
-            Password = "password",
+            Email = "email",
             Gender = "1",
         };
 

@@ -17,11 +17,12 @@ public class ClientUpdateRequestValidator : AbstractValidator<ClientUpdateReques
             .Length(8, 16)
             .Matches(@"^[0-9\-\+\(\) .]+$")
             .When(user => !string.IsNullOrWhiteSpace(user.Phone))
-            .WithMessage("Numero de account solo deberia tener entre 0 y 16 caracteres y solo contener numeros y simbolos(- + ())");
-        RuleFor(user => user.Password)
+            .WithMessage("Account number should only be between 0 and 16 characters long and only contain numbers and symbols(- + ())");
+        RuleFor(user => user.Email)
             .NotEmpty()
             .Length(8, 16)
-            .When(user => !string.IsNullOrWhiteSpace(user.Password));
+            .EmailAddress()
+            .When(user => !string.IsNullOrWhiteSpace(user.Email));
         RuleFor(user => user.Document)
             .Length(8, 24)
             .When(user => !string.IsNullOrWhiteSpace(user.Document));
