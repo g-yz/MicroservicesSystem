@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ClienteAPI.Contracts;
+using ClienteAPI.Events;
 using ClienteAPI.Models;
 using ClienteAPI.Repositories;
 using FluentValidation;
@@ -12,15 +13,19 @@ public class ClienteService : IClienteService
     private readonly IMapper _mapper;
     private readonly IValidator<ClienteCreateRequest> _createValidator;
     private readonly IValidator<ClienteUpdateRequest> _updateValidator;
+    private readonly IClientEventPublisher _clientEventPublisher;
+
     public ClienteService(IClienteRepository clienteRepository,
         IMapper mapper,
         IValidator<ClienteCreateRequest> createValidator,
-        IValidator<ClienteUpdateRequest> updateValidator)
+        IValidator<ClienteUpdateRequest> updateValidator,
+        IClientEventPublisher clientEventPublisher)
     {
         _clienteRepository = clienteRepository;
         _mapper = mapper;
         _createValidator = createValidator;
         _updateValidator = updateValidator;
+        _clientEventPublisher = clientEventPublisher;
     }
 
     public async Task<Guid> CreateAsync(ClienteCreateRequest clienteRequest)
@@ -34,7 +39,9 @@ public class ClienteService : IClienteService
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        return await _clienteRepository.DeleteAsync(id);
+        var result = await _clienteRepository.DeleteAsync(id);
+        if(result) _clientEventPublisher.NotificarClienteDesactivado(id);
+        return result;
     }
 
     public async Task<ClienteGetResponse> GetAsync(Guid id)
@@ -57,6 +64,10 @@ public class ClienteService : IClienteService
         var cliente = await _clienteRepository.GetAsync(id);
         if (cliente == null) throw new NotFoundException("El cliente no existe.");
         _mapper.Map(clienteUpdateRequest, cliente);
-        return await _clienteRepository.UpdateAsync(id, cliente);
+
+        var status = await _clienteRepository.UpdateAsync(id, cliente);
+        if(status && !cliente.Estado) _clientEventPublisher.NotificarClienteDesactivado(id);
+
+        return status;
     }
 }

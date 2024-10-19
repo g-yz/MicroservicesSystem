@@ -1,4 +1,5 @@
-﻿using CuentaAPI.Contracts;
+﻿using CuentaAPI.Consumers;
+using CuentaAPI.Contracts;
 using CuentaAPI.Models;
 using CuentaAPI.Repositories;
 using CuentaAPI.Services;
@@ -37,6 +38,8 @@ public static class DependencyInjection
         var rabbitMQSettings = configuration.GetSection("RabbitMQ");
         services.AddMassTransit(x =>
         {
+            x.AddConsumer<ClienteDesactivadoEventConsumer>();
+
             x.UsingRabbitMq((context, cfg) =>
             {
                 cfg.Host(rabbitMQSettings["Host"], c => {

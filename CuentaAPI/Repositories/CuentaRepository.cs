@@ -41,6 +41,16 @@ public class CuentaRepository : ICuentaRepository
             .Where(x => x.Estado)
             .ToListAsync();
     }
+    
+    public async Task<int> DesactivarCuentasByClienteAsync(Guid id)
+    {
+        var cuentas = await _context.Cuentas
+            .Where(x => x.ClienteId == id)
+            .ToListAsync();
+        cuentas.ForEach(x => x.Estado = false);
+        var result = await _context.SaveChangesAsync();
+        return result;
+    }
 
     public async Task<bool> UpdateAsync(Guid guid, Cuenta cuenta)
     {

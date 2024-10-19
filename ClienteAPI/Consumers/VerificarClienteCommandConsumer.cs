@@ -17,5 +17,8 @@ public class VerificarClienteCommandConsumer : IConsumer<VerificarClienteCommand
         var command = context.Message;
         var cliente = await _clienteRepository.GetAsync(command.ClienteId);
         await context.RespondAsync(new ClienteValidationResult{ Existe = cliente != null });
+
+        var estado = cliente != null ? "existe" : "no existe";
+        Console.WriteLine($"Cliente {command.ClienteId} {estado}.");
     }
 }
