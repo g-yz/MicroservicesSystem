@@ -3,11 +3,11 @@ using MassTransit;
 
 namespace ClienteAPI.Events;
 
-public class ClientEventPublisher : IClientEventPublisher
+public class ClienteEventPublisher : IClienteEventPublisher
 {
     private readonly IBus _bus;
 
-    public ClientEventPublisher(IBus bus)
+    public ClienteEventPublisher(IBus bus)
     {
         _bus = bus;
     }

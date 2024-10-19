@@ -1,12 +1,12 @@
 ﻿using AppShared.Messages;
 using MassTransit;
 
-namespace CuentaAPI.Services;
+namespace CuentaAPI.Commands;
 
-public class ClienteService : IClienteService
+public class ClienteCommandRequest : IClienteCommandRequest
 {
     private readonly IBus _bus;
-    public ClienteService(IBus bus)
+    public ClienteCommandRequest(IBus bus)
     {
         _bus = bus;
     }

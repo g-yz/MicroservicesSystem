@@ -19,7 +19,7 @@ public static class DependencyInjection
         services.AddScoped<IClienteService, ClienteService>();
         services.AddTransient<IValidator<ClienteCreateRequest>, ClienteCreateRequestValidator>();
         services.AddTransient<IValidator<ClienteUpdateRequest>, ClienteUpdateRequestValidator>();
-        services.AddTransient<IClientEventPublisher, ClientEventPublisher>();
+        services.AddTransient<IClienteEventPublisher, ClienteEventPublisher>();
 
         services.AddDbContext<ClienteDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 

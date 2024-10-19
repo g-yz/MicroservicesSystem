@@ -1,6 +1,6 @@
 ﻿namespace ClienteAPI.Events;
 
-public interface IClientEventPublisher
+public interface IClienteEventPublisher
 {
     void NotificarClienteDesactivado(Guid clienteId);
 }

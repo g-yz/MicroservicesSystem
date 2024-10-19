@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CuentaAPI.Commands;
 using CuentaAPI.Contracts;
 using CuentaAPI.Models;
 using CuentaAPI.Repositories;
@@ -12,13 +13,13 @@ public class CuentaService : ICuentaService
     private readonly IMapper _mapper;
     private readonly IValidator<CuentaCreateRequest> _createValidator;
     private readonly IValidator<CuentaUpdateRequest> _updateValidator;
-    private readonly IClienteService _clienteService;
+    private readonly IClienteCommandRequest _clienteService;
 
     public CuentaService(ICuentaRepository repository, 
         IMapper mapper, 
         IValidator<CuentaCreateRequest> createValidator, 
         IValidator<CuentaUpdateRequest> updateValidator,
-        IClienteService clienteService)
+        IClienteCommandRequest clienteService)
     {
         _repository = repository;
         _mapper = mapper;

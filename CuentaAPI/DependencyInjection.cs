@@ -1,4 +1,5 @@
-﻿using CuentaAPI.Consumers;
+﻿using CuentaAPI.Commands;
+using CuentaAPI.Consumers;
 using CuentaAPI.Contracts;
 using CuentaAPI.Models;
 using CuentaAPI.Repositories;
@@ -22,7 +23,7 @@ public static class DependencyInjection
         services.AddTransient<IValidator<CuentaUpdateRequest>, CuentaUpdateRequestValidator>();
         services.AddTransient<IValidator<MovimientoAddRequest>, MovimientoAddRequestValidator>();
         services.AddTransient<IValidator<MovimientoReporteFilter>, MovimientoReporteFilterValidator>();
-        services.AddTransient<IClienteService, ClienteService>();
+        services.AddTransient<IClienteCommandRequest, ClienteCommandRequest>();
 
         services.AddDbContext<CuentaDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 

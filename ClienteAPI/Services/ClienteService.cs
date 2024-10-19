@@ -13,13 +13,13 @@ public class ClienteService : IClienteService
     private readonly IMapper _mapper;
     private readonly IValidator<ClienteCreateRequest> _createValidator;
     private readonly IValidator<ClienteUpdateRequest> _updateValidator;
-    private readonly IClientEventPublisher _clientEventPublisher;
+    private readonly IClienteEventPublisher _clientEventPublisher;
 
     public ClienteService(IClienteRepository clienteRepository,
         IMapper mapper,
         IValidator<ClienteCreateRequest> createValidator,
         IValidator<ClienteUpdateRequest> updateValidator,
-        IClientEventPublisher clientEventPublisher)
+        IClienteEventPublisher clientEventPublisher)
     {
         _clienteRepository = clienteRepository;
         _mapper = mapper;
