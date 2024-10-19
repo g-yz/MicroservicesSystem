@@ -8,7 +8,7 @@ public class CuentaCreateRequest
 
     public int TipoCuentaId { get; set; }
 
-    public bool Estado { get; set; }
+    public bool Estado { get; set; } = true;
 
     public Guid ClienteId { get; set; }
 }

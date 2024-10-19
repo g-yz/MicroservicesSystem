@@ -1,4 +1,6 @@
 using CuentaAPI;
+using Microsoft.OpenApi.Models;
+using CuentaAPI.Controllers.SchemaExamples;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cuentas API", Version = "v1" });
+    c.SchemaFilter<ExampleSchemaFilter>();
+});
 
 builder.Services.ConfigureServices(builder.Configuration);
 
@@ -19,6 +25,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

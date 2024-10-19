@@ -23,7 +23,7 @@ public class CuentasController : ControllerBase
     public async Task<IActionResult> Get(Guid id)
     {
         var result = await _cuentaService.GetAsync(id);
-        return result!=null? Ok(result) : NotFound();
+        return Ok(result);
     }
 
     [HttpPost]
@@ -36,7 +36,7 @@ public class CuentasController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(Guid id, [FromBody] CuentaUpdateRequest cuentaUpdateRequest)
     {
-        var result = await _cuentaService.UpdateAsync(id, cuentaUpdateRequest);
+        var result =  await _cuentaService.UpdateAsync(id, cuentaUpdateRequest);
         return Ok(result);
     }
 

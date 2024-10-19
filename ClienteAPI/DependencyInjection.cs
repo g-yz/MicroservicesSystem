@@ -14,13 +14,12 @@ public static class DependencyInjection
     {
         services.AddScoped<IClienteRepository, ClienteRepository>();
         services.AddScoped<IClienteService, ClienteService>();
+        services.AddTransient<IValidator<ClienteCreateRequest>, ClienteCreateRequestValidator>();
+        services.AddTransient<IValidator<ClienteUpdateRequest>, ClienteUpdateRequestValidator>();
 
         services.AddDbContext<ClienteDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 
         services.AddAutoMapper(typeof(AppMappingProfile));
-
-        services.AddTransient<IValidator<ClienteCreateRequest>, ClienteCreateRequestValidator>();
-        services.AddTransient<IValidator<ClienteUpdateRequest>, ClienteUpdateRequestValidator>();
 
         return services;
     }

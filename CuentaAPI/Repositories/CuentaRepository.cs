@@ -20,7 +20,7 @@ public class CuentaRepository : ICuentaRepository
     public async Task<bool> DeleteAsync(Guid guid)
     {
         var cuenta = await _context.Cuentas.FindAsync(guid);
-        if (cuenta == null) return false;
+        if (cuenta == null) throw new NotFoundException("La cuenta no existe.");
         cuenta.Estado = false;
         var result = await _context.SaveChangesAsync();
         return result > 0;
@@ -45,7 +45,7 @@ public class CuentaRepository : ICuentaRepository
     public async Task<bool> UpdateAsync(Guid guid, Cuenta cuenta)
     {
         var cuentaModificada = await _context.Cuentas.FindAsync(guid);
-        if(cuentaModificada == null) return false;
+        if(cuentaModificada == null) throw new NotFoundException("La cuenta no existe.");
         cuentaModificada.NumeroCuenta = cuenta.NumeroCuenta;
         cuentaModificada.SaldoInicial = cuenta.SaldoInicial;
         cuentaModificada.TipoCuentaId = cuenta.TipoCuentaId;
