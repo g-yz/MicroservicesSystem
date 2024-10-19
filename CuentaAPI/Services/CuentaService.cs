@@ -32,7 +32,7 @@ public class CuentaService : ICuentaService
         if (result.Errors.Any()) throw new ValidationException(result.Errors);
         
         var clienteExiste = await _clienteRepository.GetAsync(cuentaCreateRequest.ClienteId);
-        if (clienteExiste == null) throw new NotFoundException("El cliente no existe.");
+        if (clienteExiste == null) throw new NotFoundException($"El cliente {cuentaCreateRequest.ClienteId} no existe.");
 
         var cuenta = _mapper.Map<Cuenta>(cuentaCreateRequest);
         return await _cuentaRepository.CreateAsync(cuenta);
@@ -40,7 +40,10 @@ public class CuentaService : ICuentaService
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        return await _cuentaRepository.DeleteAsync(id);
+        var result = await _cuentaRepository.DeleteAsync(id);
+        if (!result) throw new NotFoundException($"La cuenta {id} no existe.");
+
+        return result;
     }
 
     public async Task<int> DesactivarCuentasByClienteAsync(Guid id)
@@ -51,7 +54,7 @@ public class CuentaService : ICuentaService
     public async Task<CuentaGetResponse> GetAsync(Guid id)
     {
         var cuenta = await _cuentaRepository.GetAsync(id);
-        if(cuenta == null) throw new NotFoundException("La cuenta no existe.");
+        if(cuenta == null) throw new NotFoundException($"La cuenta {id} no existe.");
         return _mapper.Map<CuentaGetResponse>(cuenta);
     }
 
@@ -66,9 +69,12 @@ public class CuentaService : ICuentaService
         if (result.Errors.Any()) throw new ValidationException(result.Errors);
 
         var clienteExiste = await _clienteRepository.GetAsync(cuentaUpdateRequest.ClienteId);
-        if (clienteExiste == null) throw new NotFoundException("El cliente no existe.");
+        if (clienteExiste == null) throw new NotFoundException($"El cliente {cuentaUpdateRequest.ClienteId} no existe.");
 
         var cuenta = _mapper.Map<Cuenta>(cuentaUpdateRequest);
-        return await _cuentaRepository.UpdateAsync(id, cuenta);
+        var status = await _cuentaRepository.UpdateAsync(id, cuenta);
+        if (!status) throw new NotFoundException($"La cuenta {id} no existe.");
+
+        return status;
     }
 }

@@ -32,12 +32,14 @@ public class MovimientoService : IMovimientoService
         if (result.Errors.Any()) throw new ValidationException(result.Errors);
 
         var cuenta = await _cuentaRepository.GetAsync(movimientoAddRequest.CuentaId);
-        if(cuenta == null) throw new NotFoundException("La cuenta no existe.");
+        if(cuenta == null) throw new NotFoundException($"La cuenta {movimientoAddRequest.CuentaId} no existe.");
+
         var movimiento = _mapper.Map<Movimiento>(movimientoAddRequest);
         var movimientos = await _movimientoRepository.GetByCuentaAsync(movimientoAddRequest.CuentaId);
         var saldo = movimientos.Any() ? movimientos.OrderBy(x => x.Fecha).Last().Saldo : cuenta.SaldoInicial;
         movimiento.Saldo = saldo + movimiento.Valor;
-        if (movimiento.Saldo < 0) throw new ArgumentException("Saldo no disponible.");
+        if (movimiento.Saldo < 0) throw new ArgumentException($"Saldo no disponible para la cuenta {movimientoAddRequest.CuentaId}.");
+
         return await _movimientoRepository.CreateAsync(movimiento);
     }
 

@@ -18,7 +18,7 @@ public class AppMappingProfile : Profile
             .ForMember(dest => dest.TipoMovimientoId, opts => opts.MapFrom(src => src.Valor >= 0? 1 : 2));
         CreateMap<Movimiento, ReporteMovimientosGetResponse>()
             .ForMember(dest => dest.Fecha, opts => opts.MapFrom(src => src.Fecha.ToString("d")))
-            .ForMember(dest => dest.Nombre, opts => opts.MapFrom(src => "TO DO"))
+            .ForMember(dest => dest.Nombre, opts => opts.MapFrom(src => src.Cuenta.Cliente.Nombres))
             .ForMember(dest => dest.NumeroCuenta, opts => opts.MapFrom(src => src.Cuenta.NumeroCuenta))
             .ForMember(dest => dest.SaldoInicial, opts => opts.MapFrom(src => src.Saldo - src.Valor))
             .ForMember(dest => dest.Movimiento, opts => opts.MapFrom(src => src.Valor))

@@ -44,14 +44,15 @@ public class ClienteService : IClienteService
     public async Task<bool> DeleteAsync(Guid id)
     {
         var status = await _clienteRepository.DeleteAsync(id);
-        if(status) _clientEventPublisher.PublicarClienteEliminado(id);
+        if (!status) throw new NotFoundException($"El cliente {id} no existe.");
+        _clientEventPublisher.PublicarClienteEliminado(id);
         return status;
     }
 
     public async Task<ClienteGetResponse> GetAsync(Guid id)
     {
         var cliente = await _clienteRepository.GetAsync(id);
-        if (cliente == null) throw new NotFoundException("El cliente no existe.");
+        if (cliente == null) throw new NotFoundException($"El cliente {id} no existe.");
 
         return _mapper.Map<ClienteGetResponse>(cliente);
     }
@@ -67,7 +68,7 @@ public class ClienteService : IClienteService
         if (result.Errors.Any()) throw new ValidationException(result.Errors);
 
         var cliente = await _clienteRepository.GetAsync(id);
-        if (cliente == null) throw new NotFoundException("El cliente no existe.");
+        if (cliente == null) throw new NotFoundException($"El cliente {id} no existe.");
 
         _mapper.Map(clienteUpdateRequest, cliente);
         var status = await _clienteRepository.UpdateAsync(id, cliente);

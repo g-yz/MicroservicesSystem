@@ -18,12 +18,11 @@ public class ClienteDeletedEventConsumer : IConsumer<ClienteDeletedEvent>
     {
         var clienteId = context.Message.Id;
         var result = await _clienteRepository.DeleteAsync(clienteId);
+        if (!result) throw new NotFoundException($"El cliente {clienteId} no existe.");
+
         Console.WriteLine($"Cliente {clienteId} eliminado.");
 
-        if (result)
-        {
-            var numeroCuentas = await _cuentaRepository.DesactivarCuentasByClienteAsync(clienteId);
-            Console.WriteLine($"{numeroCuentas} cuentas desactivadas del cliente {clienteId}.");
-        }
+        var numeroCuentas = await _cuentaRepository.DesactivarCuentasByClienteAsync(clienteId);
+        Console.WriteLine($"{numeroCuentas} cuentas desactivadas del cliente {clienteId}.");
     }
 }

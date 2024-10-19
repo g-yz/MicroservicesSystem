@@ -28,6 +28,7 @@ public class MovimientoRepository : IMovimientoRepository
     {
         var query = _context.Movimientos
             .Include(x => x.Cuenta)
+            .Include(x => x.Cuenta.Cliente)
             .AsQueryable();
         if(filters.ClienteId.HasValue)
             query = query.Where(x => x.Cuenta.ClienteId == filters.ClienteId.Value);

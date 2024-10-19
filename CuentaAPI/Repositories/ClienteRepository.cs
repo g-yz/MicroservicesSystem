@@ -19,7 +19,7 @@ public class ClienteRepository : IClienteRepository
     public async Task<bool> DeleteAsync(Guid id)
     {
         var cliente = await _context.Clientes.FindAsync(id);
-        if(cliente == null) throw new NotFoundException($"El cliente {id} no existe.");
+        if(cliente == null) return false;
         cliente.Estado = false;
         var result = await _context.SaveChangesAsync();
         return result > 0;
@@ -33,7 +33,7 @@ public class ClienteRepository : IClienteRepository
     public async Task<bool> UpdateAsync(Guid id, Cliente cliente)
     {
         var clienteModificado = await _context.Clientes.FindAsync(id);
-        if (clienteModificado == null) throw new NotFoundException($"El cliente {id} no existe.");
+        if (clienteModificado == null) return false;
         clienteModificado.Nombres = cliente.Nombres;
         clienteModificado.Estado = cliente.Estado;
         var result = await _context.SaveChangesAsync();

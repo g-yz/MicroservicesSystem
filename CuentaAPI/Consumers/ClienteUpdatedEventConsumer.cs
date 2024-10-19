@@ -21,7 +21,9 @@ public class ClienteUpdatedEventConsumer : IConsumer<ClienteUpdatedEvent>
     public async Task Consume(ConsumeContext<ClienteUpdatedEvent> context)
     {
         var clienteUpdated = context.Message;
-        await _clienteRepository.UpdateAsync(clienteUpdated.Id, _mapper.Map<Cliente>(clienteUpdated));
+        var result = await _clienteRepository.UpdateAsync(clienteUpdated.Id, _mapper.Map<Cliente>(clienteUpdated));
+        if (!result) throw new NotFoundException($"El cliente {clienteUpdated.Id} no existe.");
+
         Console.WriteLine($"El cliente {clienteUpdated.Id} fue actualizado.");
 
         if (!clienteUpdated.Estado)
