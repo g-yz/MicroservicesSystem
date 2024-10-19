@@ -28,14 +28,16 @@ public class ClienteRepository : IClienteRepository
 
     public async Task<Cliente?> GetAsync(Guid id)
     {
-        return await _context.Clientes.FindAsync(id);
+        return await _context.Clientes
+            .Include(x => x.TipoGenero)
+            .FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task<IEnumerable<Cliente>> ListAsync()
     {
         return await _context.Clientes
-            .Include(c => c.Persona)
-            .Where(c => c.Estado)
+            .Include(x => x.TipoGenero)
+            .Where(x => x.Estado)
             .ToListAsync();
     }
 

@@ -17,9 +17,9 @@ public partial class Persona
 
     public byte? Edad { get; set; }
 
-    public int? GeneroId { get; set; }
+    public int? TipoGeneroId { get; set; }
 
     public virtual Cliente? Cliente { get; set; }
 
-    public virtual Genero? Genero { get; set; }
+    public virtual TiposGenero? TipoGenero { get; set; }
 }

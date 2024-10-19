@@ -11,4 +11,10 @@ public class ClienteUpdateRequest
     public string? Password { get; set; }
 
     public bool? Estado { get; set; }
+
+    public string? Identificacion { get; set; }
+
+    public byte? Edad { get; set; }
+
+    public int? TipoGeneroId { get; set; }
 }
