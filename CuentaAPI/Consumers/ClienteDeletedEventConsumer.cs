@@ -1,6 +1,7 @@
 ﻿using AppShared.Messages;
 using CuentaAPI.Repositories;
 using MassTransit;
+using Microsoft.Extensions.Logging;
 
 namespace CuentaAPI.Consumers;
 
@@ -8,10 +9,12 @@ public class ClienteDeletedEventConsumer : IConsumer<ClienteDeletedEvent>
 {
     private readonly IClienteRepository _clienteRepository;
     private readonly ICuentaRepository _cuentaRepository;
-    public ClienteDeletedEventConsumer(IClienteRepository clienteRepository, ICuentaRepository cuentaRepository)
+    private readonly ILogger<ClienteDeletedEventConsumer> _logger;
+    public ClienteDeletedEventConsumer(IClienteRepository clienteRepository, ICuentaRepository cuentaRepository, ILogger<ClienteDeletedEventConsumer> logger)
     {
         _clienteRepository = clienteRepository;
         _cuentaRepository = cuentaRepository;
+        _logger = logger;
     }
 
     public async Task Consume(ConsumeContext<ClienteDeletedEvent> context)
@@ -20,9 +23,9 @@ public class ClienteDeletedEventConsumer : IConsumer<ClienteDeletedEvent>
         var result = await _clienteRepository.DeleteAsync(clienteId);
         if (!result) throw new NotFoundException($"El cliente {clienteId} no existe.");
 
-        Console.WriteLine($"Cliente {clienteId} eliminado.");
+        _logger.LogInformation("Cliente {ClienteId} eliminado.", clienteId);
 
-        var numeroCuentas = await _cuentaRepository.DesactivarCuentasByClienteAsync(clienteId);
-        Console.WriteLine($"{numeroCuentas} cuentas desactivadas del cliente {clienteId}.");
+        var numeroCuentas = await _cuentaRepository.DeleteByClienteAsync(clienteId);
+        _logger.LogInformation("{NumeroCuentas} cuentas desactivadas del cliente {ClienteId}.", numeroCuentas, clienteId);
     }
 }

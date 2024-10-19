@@ -55,6 +55,9 @@ services:
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
       - ConnectionStrings__DatabaseConnection=Server=cuentadb;Database=cuentas_servicio;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USERNAME=guest
+      - RABBITMQ__PASSWORD=guest
     ports:
       - "6000:8080"
       - "6010:8081"
@@ -71,9 +74,12 @@ services:
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
       - ConnectionStrings__DatabaseConnection=Server=clientedb;Database=clientes_servicio;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USERNAME=guest
+      - RABBITMQ__PASSWORD=guest
     ports:
       - "6001:8080"
-      - "6061:8081"
+      - "6011:8081"
     depends_on:
       clientedb:
         condition: service_healthy

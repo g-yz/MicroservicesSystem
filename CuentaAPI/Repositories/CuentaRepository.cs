@@ -42,7 +42,7 @@ public class CuentaRepository : ICuentaRepository
             .ToListAsync();
     }
     
-    public async Task<int> DesactivarCuentasByClienteAsync(Guid id)
+    public async Task<int> DeleteByClienteAsync(Guid id)
     {
         var cuentas = await _context.Cuentas
             .Where(x => x.ClienteId == id)

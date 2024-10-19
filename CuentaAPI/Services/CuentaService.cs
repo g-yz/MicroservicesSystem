@@ -48,7 +48,7 @@ public class CuentaService : ICuentaService
 
     public async Task<int> DesactivarCuentasByClienteAsync(Guid id)
     {
-        return await _cuentaRepository.DesactivarCuentasByClienteAsync(id);
+        return await _cuentaRepository.DeleteByClienteAsync(id);
     }
 
     public async Task<CuentaGetResponse> GetAsync(Guid id)

@@ -9,31 +9,33 @@ public class ClienteEventPublisher : IClienteEventPublisher
 {
     private readonly IBus _bus;
     private readonly IMapper _mapper;
+    private readonly ILogger<ClienteEventPublisher> _logger;
 
-    public ClienteEventPublisher(IBus bus, IMapper mapper)
+    public ClienteEventPublisher(IBus bus, IMapper mapper, ILogger<ClienteEventPublisher> logger)
     {
         _bus = bus;
         _mapper = mapper;
+        _logger = logger;
     }
 
     public void PublicarClienteCreado(Cliente cliente)
     {
         var clienteCreated = _mapper.Map<ClienteCreatedEvent>(cliente);
         _bus.Publish(clienteCreated);
-        Console.WriteLine($"Cliente {clienteCreated.Id} fue creado.");
+        _logger.LogInformation("Cliente {ClienteId} fue creado.", clienteCreated.Id);
     }
 
     public void PublicarClienteEliminado(Guid id)
     {
         var clienteDeleted = new ClienteDeletedEvent() { Id = id };
         _bus.Publish(clienteDeleted);
-        Console.WriteLine($"Cliente {clienteDeleted.Id} fue eliminado.");
+        _logger.LogInformation("Cliente {ClienteId} fue eliminado.", clienteDeleted.Id);
     }
 
     public void PublicarClienteModificado(Cliente cliente)
     {
         var clienteUpdated = _mapper.Map<ClienteUpdatedEvent>(cliente);
         _bus.Publish(clienteUpdated);
-        Console.WriteLine($"Cliente {clienteUpdated.Id} fue creado.");
+        _logger.LogInformation("Cliente {ClienteId} fue creado.", clienteUpdated.Id);
     }
 }
