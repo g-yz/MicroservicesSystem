@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using FluentValidation;
+using SystemApp.Shared.Exceptions;
 
 namespace CuentaAPI.Middleware;
 
@@ -95,9 +96,4 @@ public class ExceptionHandlingMiddleware
 
         return context.Response.WriteAsJsonAsync(errors);
     }
-}
-
-public class NotFoundException : Exception
-{
-    public NotFoundException(string message) : base(message) { }
 }

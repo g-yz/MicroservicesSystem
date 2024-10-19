@@ -1,5 +1,6 @@
 using System.Net;
 using FluentValidation;
+using SystemApp.Shared.Exceptions;
 
 namespace ClienteAPI.Middleware;
 
@@ -77,7 +78,3 @@ public class ExceptionHandlingMiddleware
     }
 }
 
-public class NotFoundException : Exception
-{
-    public NotFoundException(string message) : base(message) { }
-}
