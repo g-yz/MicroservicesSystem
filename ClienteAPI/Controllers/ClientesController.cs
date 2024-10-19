@@ -13,13 +13,22 @@ public class ClientesController : ControllerBase
     {
         _clienteService = clienteService;
     }
+
     [HttpGet]
+    [ProducesResponseType(typeof(IEnumerable<ClienteGetResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Get()
     {
         return Ok(await _clienteService.ListAsync());
     }
 
     [HttpGet("{id}")]
+    [ProducesResponseType(typeof(ClienteGetResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Get(Guid id)
     {
         var result = await _clienteService.GetAsync(id);
@@ -27,6 +36,10 @@ public class ClientesController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Post([FromBody] ClienteCreateRequest cliente)
     {
         var result = await _clienteService.CreateAsync(cliente);
@@ -34,6 +47,10 @@ public class ClientesController : ControllerBase
     }
 
     [HttpPatch("{id}")]
+    [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Patch(Guid id, [FromBody] ClienteUpdateRequest clienteUpdateRequest)
     {
         var result = await _clienteService.UpdateAsync(id, clienteUpdateRequest);
@@ -41,6 +58,10 @@ public class ClientesController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Delete(Guid id)
     {
         var result = await _clienteService.DeleteAsync(id);

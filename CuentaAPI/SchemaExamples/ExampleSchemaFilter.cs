@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace CuentaAPI.Controllers.SchemaExamples;
+namespace CuentaAPI.SchemaExamples;
 
 public class ExampleSchemaFilter : ISchemaFilter
 {

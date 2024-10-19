@@ -14,12 +14,20 @@ public class CuentasController : ControllerBase
         _cuentaService = cuentaService;
     }
     [HttpGet]
+    [ProducesResponseType(typeof(IEnumerable<CuentaGetResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Get()
     {
         return Ok(await _cuentaService.ListAsync());
     }
 
     [HttpGet("{id}")]
+    [ProducesResponseType(typeof(CuentaGetResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Get(Guid id)
     {
         var result = await _cuentaService.GetAsync(id);
@@ -27,6 +35,10 @@ public class CuentasController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Post([FromBody] CuentaCreateRequest cuentaCreateRequest)
     {
         var result = await _cuentaService.CreateAsync(cuentaCreateRequest);
@@ -34,6 +46,10 @@ public class CuentasController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Put(Guid id, [FromBody] CuentaUpdateRequest cuentaUpdateRequest)
     {
         var result =  await _cuentaService.UpdateAsync(id, cuentaUpdateRequest);
@@ -41,6 +57,10 @@ public class CuentasController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Delete(Guid id)
     {
         var result = await _cuentaService.DeleteAsync(id);

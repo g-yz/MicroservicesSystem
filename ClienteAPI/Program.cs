@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Clientes API", Version = "v1" });
     c.SchemaFilter<ExampleSchemaFilter>();
 });
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.ConfigureServices(builder.Configuration);
 

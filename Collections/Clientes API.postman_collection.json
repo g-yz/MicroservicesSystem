@@ -1,0 +1,1009 @@
+{
+	"info": {
+		"_postman_id": "00ce8366-5845-411e-80ae-9dda74225174",
+		"name": "Clientes API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14749735"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "clientes",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/clientes/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "78aa3b59-848f-4922-814d-fd702dc0bec3",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "78aa3b59-848f-4922-814d-fd702dc0bec3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\",\n    \"nombres\": \"Meria Perez\",\n    \"direccion\": \"123 Calle Sur\",\n    \"telefono\": \"999-555-1234\",\n    \"password\": \"MiPasswordSeguro\",\n    \"estado\": false,\n    \"identificacion\": \"CD123456\",\n    \"edad\": 25,\n    \"genero\": \"Masculino\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "78aa3b59"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"id\": [\n            \"The value '78aa3b59' is not valid.\"\n        ]\n    },\n    \"traceId\": \"00-d091f88a308696c741bf0a1a91854e0e-d9619ad213e4d0bc-00\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "78aa3b59-848f-4922-814d-fd702dc0bec4"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"statusCode\": 404,\n    \"message\": \"An unexpected error occurred\",\n    \"detail\": \"El cliente 78aa3b59-848f-4922-814d-fd702dc0bec4 no existe.\"\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "78aa3b59-848f-4922-814d-fd702dc0bec4"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/clientes/:id",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombres\": \"Meria Perez\",\n  \"direccion\": \"123 Calle Sur\",\n  \"telefono\": \"999-555-1234\",\n  \"password\": \"MiPasswordSeguro\",\n  \"estado\": true,\n  \"identificacion\": \"CD123456\",\n  \"edad\": 25,\n  \"tipoGeneroId\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "78aa3b59-848f-4922-814d-fd702dc0bec3",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nombres\": \"Meria Perez\",\n  \"direccion\": \"123 Calle Sur\",\n  \"telefono\": \"999-555-1234\",\n  \"password\": \"MiPasswordSeguro\",\n  \"estado\": true,\n  \"identificacion\": \"CD123456\",\n  \"edad\": 25,\n  \"tipoGeneroId\": 2\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "78aa3b59-848f-4922-814d-fd702dc0bec3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "true"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nombres\": \"<string>\",\n  \"direccion\": \"<string>\",\n  \"telefono\": \"<string>\",\n  \"password\": \"<string>\",\n  \"estado\": \"<boolean>\",\n  \"identificacion\": \"<string>\",\n  \"edad\": \"<integer>\",\n  \"tipoGeneroId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "78aa3b59-848f-4922-814d-fd702dc0bec4"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nombres\": \"<string>\",\n  \"direccion\": \"<string>\",\n  \"telefono\": \"<string>\",\n  \"password\": \"<string>\",\n  \"estado\": \"<boolean>\",\n  \"identificacion\": \"<string>\",\n  \"edad\": \"<integer>\",\n  \"tipoGeneroId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": ""
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nombres\": \"<string>\",\n  \"direccion\": \"<string>\",\n  \"telefono\": \"<string>\",\n  \"password\": \"<string>\",\n  \"estado\": \"<boolean>\",\n  \"identificacion\": \"<string>\",\n  \"edad\": \"<integer>\",\n  \"tipoGeneroId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/clientes/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "78aa3b59-848f-4922-814d-fd702dc0bec3",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "78aa3b59-848f-4922-814d-fd702dc0bec3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "true"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": ""
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": ""
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/clientes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"clientes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"nombres\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"password\": \"<string>\",\n    \"estado\": \"<boolean>\",\n    \"identificacion\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"genero\": \"<string>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"nombres\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"telefono\": \"<string>\",\n    \"password\": \"<string>\",\n    \"estado\": \"<boolean>\",\n    \"identificacion\": \"<string>\",\n    \"edad\": \"<integer>\",\n    \"genero\": \"<string>\"\n  }\n]"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/clientes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nombres\": \"Juan Perez\",\n  \"direccion\": \"123 Calle Sur\",\n  \"telefono\": \"999-555-1234\",\n  \"password\": \"MiPassword\",\n  \"identificacion\": \"AB123456\",\n  \"edad\": 20,\n  \"tipoGeneroId\": 1\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"clientes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombres\": \"Juan Perez\",\n  \"direccion\": \"123 Calle Sur\",\n  \"telefono\": \"999-555-1234\",\n  \"password\": \"MiPassword\",\n  \"identificacion\": \"AB123456\",\n  \"edad\": 20,\n  \"tipoGeneroId\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "\"78aa3b59-848f-4922-814d-fd702dc0bec3\""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombres\": \"<string>\",\n  \"direccion\": \"<string>\",\n  \"telefono\": \"<string>\",\n  \"password\": \"<string>\",\n  \"estado\": \"<boolean>\",\n  \"identificacion\": \"<string>\",\n  \"edad\": \"<integer>\",\n  \"tipoGeneroId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombres\": \"<string>\",\n  \"direccion\": \"<string>\",\n  \"telefono\": \"<string>\",\n  \"password\": \"<string>\",\n  \"estado\": \"<boolean>\",\n  \"identificacion\": \"<string>\",\n  \"edad\": \"<integer>\",\n  \"tipoGeneroId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nombres\": \"<string>\",\n  \"direccion\": \"<string>\",\n  \"telefono\": \"<string>\",\n  \"password\": \"<string>\",\n  \"estado\": \"<boolean>\",\n  \"identificacion\": \"<string>\",\n  \"edad\": \"<integer>\",\n  \"tipoGeneroId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"clientes"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}

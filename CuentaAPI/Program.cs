@@ -1,7 +1,7 @@
 using CuentaAPI;
 using Microsoft.OpenApi.Models;
-using CuentaAPI.Controllers.SchemaExamples;
 using CuentaAPI.Middleware;
+using CuentaAPI.SchemaExamples;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cuentas API", Version = "v1" });
     c.SchemaFilter<ExampleSchemaFilter>();
 });
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.ConfigureServices(builder.Configuration);
 

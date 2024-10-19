@@ -1,0 +1,1629 @@
+{
+	"info": {
+		"_postman_id": "97eb31cd-fd49-4265-b087-d11ce23dd86b",
+		"name": "Cuentas API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14749735"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "cuentas",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/cuentas/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\",\n    \"numeroCuenta\": \"1234567890\",\n    \"saldoInicial\": 10000.0000,\n    \"tipoCuenta\": \"Ahorros\",\n    \"estado\": true,\n    \"clienteId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/cuentas/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 20000,\n  \"tipoCuentaId\": 1,\n  \"estado\": true,\n  \"clienteId\": \"f390ca26-ea5d-4524-8702-87ba75ceda97\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 20000,\n  \"tipoCuentaId\": 1,\n  \"estado\": true,\n  \"clienteId\": \"f390ca26-ea5d-4524-8702-87ba75ceda97\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "true"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/cuentas/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "true"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cuentas",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "be49ac99-fb6d-4afc-8a13-beaef9b6927e"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/cuentas",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/cuentas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"cuentas"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\",\n        \"numeroCuenta\": \"1234567890\",\n        \"saldoInicial\": 10000.0000,\n        \"tipoCuenta\": \"Ahorros\",\n        \"estado\": true,\n        \"clienteId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n    }\n]"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/cuentas",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 10000,\n  \"tipoCuentaId\": 1,\n  \"clienteId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/cuentas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"cuentas"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 10000,\n  \"tipoCuentaId\": 1,\n  \"clienteId\": \"a59a79be-db74-4041-b71b-835ffedcef6a\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "\"be49ac99-fb6d-4afc-8a13-beaef9b6927e\""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/cuentas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"cuentas"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "movimientos",
+					"item": [
+						{
+							"name": "reporte",
+							"item": [
+								{
+									"name": "/api/movimientos/reporte",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos/reporte?FechaInicio=1/1/2000&FechaFin=1/1/2030",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos",
+												"reporte"
+											],
+											"query": [
+												{
+													"key": "ClienteId",
+													"value": "78aa3b59-848f-4922-814d-fd702dc0bec3",
+													"disabled": true
+												},
+												{
+													"key": "FechaInicio",
+													"value": "1/1/2000"
+												},
+												{
+													"key": "FechaFin",
+													"value": "1/1/2030"
+												},
+												{
+													"key": "NumeroCuenta",
+													"value": "1234567890",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/movimientos/reporte?FechaInicio=1/1/2000&FechaFin=1/1/2030",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"movimientos",
+														"reporte"
+													],
+													"query": [
+														{
+															"key": "ClienteId",
+															"value": "78aa3b59-848f-4922-814d-fd702dc0bec3",
+															"disabled": true
+														},
+														{
+															"key": "FechaInicio",
+															"value": "1/1/2000"
+														},
+														{
+															"key": "FechaFin",
+															"value": "1/1/2030"
+														},
+														{
+															"key": "NumeroCuenta",
+															"value": "1234567890",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"fecha\": \"10/20/2024\",\n        \"nombre\": \"Meria Perez\",\n        \"numeroCuenta\": \"1234567890\",\n        \"saldoInicial\": 10150.7500,\n        \"movimiento\": 1050.7500,\n        \"saldoDisponible\": 11201.5000,\n        \"estado\": true\n    },\n    {\n        \"fecha\": \"10/20/2024\",\n        \"nombre\": \"Meria Perez\",\n        \"numeroCuenta\": \"1234567890\",\n        \"saldoInicial\": 10000.0000,\n        \"movimiento\": 150.7500,\n        \"saldoDisponible\": 10150.7500,\n        \"estado\": true\n    }\n]"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/movimientos/reporte?ClienteId=<uuid>&FechaInicio=<dateTime>&FechaFin=<dateTime>&NumeroCuenta=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"movimientos",
+														"reporte"
+													],
+													"query": [
+														{
+															"key": "ClienteId",
+															"value": "<uuid>"
+														},
+														{
+															"key": "FechaInicio",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "FechaFin",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "NumeroCuenta",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/movimientos/reporte?ClienteId=<uuid>&FechaInicio=<dateTime>&FechaFin=<dateTime>&NumeroCuenta=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"movimientos",
+														"reporte"
+													],
+													"query": [
+														{
+															"key": "ClienteId",
+															"value": "<uuid>"
+														},
+														{
+															"key": "FechaInicio",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "FechaFin",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "NumeroCuenta",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/movimientos/reporte?ClienteId=<uuid>&FechaInicio=<dateTime>&FechaFin=<dateTime>&NumeroCuenta=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"movimientos",
+														"reporte"
+													],
+													"query": [
+														{
+															"key": "ClienteId",
+															"value": "<uuid>"
+														},
+														{
+															"key": "FechaInicio",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "FechaFin",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "NumeroCuenta",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/movimientos",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"valor\": 1050.75,\n  \"cuentaId\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/movimientos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"movimientos"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "\"9660a44d-d2d8-4aa3-bf0e-f6406b4eb30f\""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/movimientos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/movimientos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"movimientos"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": \"920dc367-ab1f-473f-b78b-5f7eb5031e43\",\n        \"fecha\": \"20/10/2024 14:34\",\n        \"numeroCuenta\": \"1234567890\",\n        \"tipo\": \"Ahorros\",\n        \"saldoInicial\": 11201.5000,\n        \"movimiento\": \"Deposito de 1050.7500\",\n        \"estado\": true\n    },\n    {\n        \"id\": \"9660a44d-d2d8-4aa3-bf0e-f6406b4eb30f\",\n        \"fecha\": \"20/10/2024 14:32\",\n        \"numeroCuenta\": \"1234567890\",\n        \"tipo\": \"Ahorros\",\n        \"saldoInicial\": 10150.7500,\n        \"movimiento\": \"Deposito de 150.7500\",\n        \"estado\": true\n    }\n]"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 0,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"additionalProp1\": \"string\",\n  \"additionalProp2\": \"string\",\n  \"additionalProp3\": \"string\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/movimientos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"movimientos"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
