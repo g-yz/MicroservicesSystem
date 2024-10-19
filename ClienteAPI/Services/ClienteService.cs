@@ -12,8 +12,8 @@ public class ClienteService : IClienteService
     private readonly IMapper _mapper;
     private readonly IValidator<ClienteCreateRequest> _createValidator;
     private readonly IValidator<ClienteUpdateRequest> _updateValidator;
-    public ClienteService(IClienteRepository clienteRepository, 
-        IMapper mapper, 
+    public ClienteService(IClienteRepository clienteRepository,
+        IMapper mapper,
         IValidator<ClienteCreateRequest> createValidator,
         IValidator<ClienteUpdateRequest> updateValidator)
     {

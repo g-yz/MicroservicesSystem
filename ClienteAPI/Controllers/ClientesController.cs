@@ -22,7 +22,8 @@ public class ClientesController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(Guid id)
     {
-        return Ok(await _clienteService.GetAsync(id));
+        var result = await _clienteService.GetAsync(id);
+        return result != null? Ok(result) : NotFound();
     }
 
     [HttpPost]
@@ -36,13 +37,13 @@ public class ClientesController : ControllerBase
     public async Task<IActionResult> Patch(Guid id, [FromBody] ClienteUpdateRequest clienteUpdateRequest)
     {
         var result = await _clienteService.UpdateAsync(id, clienteUpdateRequest);
-        return Ok(result);
+        return result? Ok(result) : NotFound();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
         var result = await _clienteService.DeleteAsync(id);
-        return Ok(result);
+        return result? Ok(result) : NotFound();
     }
 }
