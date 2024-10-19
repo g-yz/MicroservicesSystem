@@ -1,5 +1,5 @@
-﻿using ClienteAPI.Contracts;
-using ClienteAPI.Services;
+﻿using ClienteApp.Services.Contracts;
+using ClienteApp.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClienteAPI.Controllers;

@@ -1,5 +1,6 @@
 using ClienteAPI;
-using ClienteAPI.Controllers.SchemaExamples;
+using ClienteAPI.Middleware;
+using ClienteAPI.SchemaExamples;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);

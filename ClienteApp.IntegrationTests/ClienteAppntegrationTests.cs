@@ -1,4 +1,4 @@
-using ClienteAPI.Contracts;
+using ClienteApp.Services.Contracts;
 using System.Net.Http.Json;
 
 namespace ClienteApp.IntegrationTests;
