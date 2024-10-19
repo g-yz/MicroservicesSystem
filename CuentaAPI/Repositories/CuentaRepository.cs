@@ -28,12 +28,18 @@ public class CuentaRepository : ICuentaRepository
 
     public async Task<Cuenta?> GetAsync(Guid id)
     {
-        return await _context.Cuentas.FindAsync(id);
+        return await _context.Cuentas
+            .Include(x => x.TipoCuenta)
+            .Where(x => x.Estado)
+            .FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task<IEnumerable<Cuenta>> ListAsync()
     {
-        return await _context.Cuentas.ToListAsync();
+        return await _context.Cuentas
+            .Include(x => x.TipoCuenta)
+            .Where(x => x.Estado)
+            .ToListAsync();
     }
 
     public async Task<bool> UpdateAsync(Guid guid, Cuenta cuenta)

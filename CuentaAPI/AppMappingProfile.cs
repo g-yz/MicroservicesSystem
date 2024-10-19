@@ -10,7 +10,8 @@ public class AppMappingProfile : Profile
     {
         CreateMap<CuentaCreateRequest, Cuenta>();
         CreateMap<CuentaUpdateRequest, Cuenta>();
-        CreateMap<Cuenta, CuentaGetResponse>();
+        CreateMap<Cuenta, CuentaGetResponse>()
+            .ForMember(dest => dest.TipoCuenta, opts => opts.MapFrom(src => src.TipoCuenta.Descripcion));
 
         CreateMap<MovimientoAddRequest, Movimiento>();
         CreateMap<Movimiento, ReporteMovimientosGetResponse>()
