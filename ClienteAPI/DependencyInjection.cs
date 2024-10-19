@@ -1,9 +1,11 @@
-﻿using ClienteAPI.Contracts;
+﻿using ClienteAPI.Consumers;
+using ClienteAPI.Contracts;
 using ClienteAPI.Models;
 using ClienteAPI.Repositories;
 using ClienteAPI.Services;
 using ClienteAPI.Validators;
 using FluentValidation;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClienteAPI;
@@ -20,6 +22,28 @@ public static class DependencyInjection
         services.AddDbContext<ClienteDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 
         services.AddAutoMapper(typeof(AppMappingProfile));
+
+        services.ConfigureRabbitMqServices(configuration);
+
+        return services;
+    }
+
+    public static IServiceCollection ConfigureRabbitMqServices(this IServiceCollection services, IConfiguration configuration)
+    {
+        var rabbitMQSettings = configuration.GetSection("RabbitMQ");
+        services.AddMassTransit(x =>
+        {
+            x.AddConsumer<VerificarClienteCommandConsumer>();
+
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host(rabbitMQSettings["Host"], c => {
+                    c.Username(rabbitMQSettings["Username"]);
+                    c.Password(rabbitMQSettings["Password"]);
+                });
+                cfg.ConfigureEndpoints(context);
+            });
+        });
 
         return services;
     }

@@ -18,6 +18,9 @@ services:
       context: .
       dockerfile: ClienteAPI/Dockerfile
 
+  rabbitmq:
+    image: rabbitmq:management-alpine
+
 volumes:
   data_cuenta: 
   data_cliente:

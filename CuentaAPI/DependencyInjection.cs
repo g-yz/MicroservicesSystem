@@ -4,6 +4,7 @@ using CuentaAPI.Repositories;
 using CuentaAPI.Services;
 using CuentaAPI.Validators;
 using FluentValidation;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 namespace CuentaAPI;
@@ -20,10 +21,31 @@ public static class DependencyInjection
         services.AddTransient<IValidator<CuentaUpdateRequest>, CuentaUpdateRequestValidator>();
         services.AddTransient<IValidator<MovimientoAddRequest>, MovimientoAddRequestValidator>();
         services.AddTransient<IValidator<MovimientoReporteFilter>, MovimientoReporteFilterValidator>();
+        services.AddTransient<IClienteService, ClienteService>();
 
         services.AddDbContext<CuentaDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 
         services.AddAutoMapper(typeof(AppMappingProfile));
+
+        services.ConfigureRabbitMqServices(configuration);
+
+        return services;
+    }
+
+    public static IServiceCollection ConfigureRabbitMqServices(this IServiceCollection services, IConfiguration configuration)
+    {
+        var rabbitMQSettings = configuration.GetSection("RabbitMQ");
+        services.AddMassTransit(x =>
+        {
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host(rabbitMQSettings["Host"], c => {
+                    c.Username(rabbitMQSettings["Username"]);
+                    c.Password(rabbitMQSettings["Password"]);
+                });
+                cfg.ConfigureEndpoints(context);
+            });
+        });
 
         return services;
     }

@@ -12,20 +12,27 @@ public class CuentaService : ICuentaService
     private readonly IMapper _mapper;
     private readonly IValidator<CuentaCreateRequest> _createValidator;
     private readonly IValidator<CuentaUpdateRequest> _updateValidator;
+    private readonly IClienteService _clienteService;
+
     public CuentaService(ICuentaRepository repository, 
         IMapper mapper, 
         IValidator<CuentaCreateRequest> createValidator, 
-        IValidator<CuentaUpdateRequest> updateValidator)
+        IValidator<CuentaUpdateRequest> updateValidator,
+        IClienteService clienteService)
     {
         _repository = repository;
         _mapper = mapper;
         _createValidator = createValidator;
         _updateValidator = updateValidator;
+        _clienteService = clienteService;
     }
     public async Task<Guid> CreateAsync(CuentaCreateRequest cuentaCreateRequest)
     {
         var result = _createValidator.Validate(cuentaCreateRequest);
         if (result.Errors.Any()) throw new ValidationException(result.Errors);
+
+        var clienteExiste = await _clienteService.VerificarClienteAsync(cuentaCreateRequest.ClienteId);
+        if (!clienteExiste) throw new NotFoundException("El cliente no existe.");
 
         var cuenta = _mapper.Map<Cuenta>(cuentaCreateRequest);
         return await _repository.CreateAsync(cuenta);
