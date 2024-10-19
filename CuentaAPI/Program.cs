@@ -1,6 +1,7 @@
 using CuentaAPI;
 using Microsoft.OpenApi.Models;
 using CuentaAPI.Controllers.SchemaExamples;
+using CuentaAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

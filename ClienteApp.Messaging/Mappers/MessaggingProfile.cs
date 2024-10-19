@@ -2,7 +2,7 @@
 using AutoMapper;
 using ClienteApp.Data.Models;
 
-namespace ClienteApp.Services.Mappers;
+namespace ClienteApp.Messaging.Mappers;
 
 public class MessaggingProfile : Profile
 {

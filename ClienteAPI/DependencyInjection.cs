@@ -1,8 +1,9 @@
 ﻿using ClienteAPI.Models;
 using ClienteApp.Data.Repositories;
+using ClienteApp.Messaging.Mappers;
+using ClienteApp.Messaging.Producers;
 using ClienteApp.Services.Contracts;
 using ClienteApp.Services.Mappers;
-using ClienteApp.Services.Producers;
 using ClienteApp.Services.Services;
 using ClienteApp.Services.Validators;
 using FluentValidation;

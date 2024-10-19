@@ -1,5 +1,6 @@
-﻿using CuentaAPI.Contracts;
-using CuentaAPI.Services;
+﻿using CuentaApp.Data.Models;
+using CuentaApp.Services.Contracts;
+using CuentaApp.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CuentaAPI.Controllers;

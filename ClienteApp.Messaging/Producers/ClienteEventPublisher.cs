@@ -4,7 +4,7 @@ using MassTransit;
 using Microsoft.Extensions.Logging;
 using ClienteApp.Data.Models;
 
-namespace ClienteApp.Services.Producers;
+namespace ClienteApp.Messaging.Producers;
 
 public class ClienteEventPublisher : IClienteEventPublisher
 {

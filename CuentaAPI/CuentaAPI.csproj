@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CuentaApp.Services\CuentaApp.Services.csproj" />
     <ProjectReference Include="..\SystemApp.Shared\SystemApp.Shared.csproj" />
   </ItemGroup>
 

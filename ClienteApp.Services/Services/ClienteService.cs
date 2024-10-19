@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using ClienteApp.Data.Models;
 using ClienteApp.Data.Repositories;
+using ClienteApp.Messaging.Producers;
 using ClienteApp.Services.Contracts;
-using ClienteApp.Services.Producers;
 using FluentValidation;
 using SystemApp.Shared.Exceptions;
 

@@ -13,7 +13,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["CuentaAPI/CuentaAPI.csproj", "CuentaAPI/"]
+COPY ["CuentaApp.Services/CuentaApp.Services.csproj", "CuentaApp.Services/"]
+COPY ["CuentaApp.Data/CuentaApp.Data.csproj", "CuentaApp.Data/"]
 COPY ["SystemApp.Shared/SystemApp.Shared.csproj", "SystemApp.Shared/"]
+COPY ["CuentaApp.Messaging/CuentaApp.Messaging.csproj", "CuentaApp.Messaging/"]
 RUN dotnet restore "./CuentaAPI/CuentaAPI.csproj"
 COPY . .
 WORKDIR "/src/CuentaAPI"

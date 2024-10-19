@@ -13,11 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApp.IntegrationTests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemApp.Shared", "SystemApp.Shared\SystemApp.Shared.csproj", "{FD5B6B9A-7E05-48AB-AE7A-2E3E2BCC4429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteApp.Services", "ClienteApp.Services\ClienteApp.Services.csproj", "{0795715E-D18F-4D33-8C6E-62BE7990BC70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApp.Services", "ClienteApp.Services\ClienteApp.Services.csproj", "{0795715E-D18F-4D33-8C6E-62BE7990BC70}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApp.Data", "ClienteApp.Data\ClienteApp.Data.csproj", "{5C72A04D-2B53-4AE5-A6C2-18A3B190D77A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteApp.Messaging", "ClienteApp.Messaging\ClienteApp.Messaging.csproj", "{87DD4739-58D0-4912-BD86-F9BC053CB47A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApp.Messaging", "ClienteApp.Messaging\ClienteApp.Messaging.csproj", "{87DD4739-58D0-4912-BD86-F9BC053CB47A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuentaApp.Data", "CuentaApp.Data\CuentaApp.Data.csproj", "{DBD589C4-CCE9-4D12-BBC3-04B56CCA798C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuentaApp.Services", "CuentaApp.Services\CuentaApp.Services.csproj", "{4AC88F0F-A0EB-4519-8ADE-E1EF3ED3A49A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuentaApp.Messaging", "CuentaApp.Messaging\CuentaApp.Messaging.csproj", "{766EDA8B-7841-4356-A4B0-4C169C509AE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +63,18 @@ Global
 		{87DD4739-58D0-4912-BD86-F9BC053CB47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87DD4739-58D0-4912-BD86-F9BC053CB47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87DD4739-58D0-4912-BD86-F9BC053CB47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD589C4-CCE9-4D12-BBC3-04B56CCA798C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD589C4-CCE9-4D12-BBC3-04B56CCA798C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD589C4-CCE9-4D12-BBC3-04B56CCA798C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD589C4-CCE9-4D12-BBC3-04B56CCA798C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC88F0F-A0EB-4519-8ADE-E1EF3ED3A49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC88F0F-A0EB-4519-8ADE-E1EF3ED3A49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC88F0F-A0EB-4519-8ADE-E1EF3ED3A49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC88F0F-A0EB-4519-8ADE-E1EF3ED3A49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{766EDA8B-7841-4356-A4B0-4C169C509AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{766EDA8B-7841-4356-A4B0-4C169C509AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{766EDA8B-7841-4356-A4B0-4C169C509AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{766EDA8B-7841-4356-A4B0-4C169C509AE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

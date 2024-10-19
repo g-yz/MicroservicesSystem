@@ -1,12 +1,13 @@
-﻿using CuentaAPI.Consumers;
-using CuentaAPI.Contracts;
-using CuentaAPI.Models;
-using CuentaAPI.Repositories;
-using CuentaAPI.Services;
-using CuentaAPI.Validators;
-using FluentValidation;
+﻿using FluentValidation;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using CuentaApp.Data.Repositories;
+using CuentaApp.Data.Models;
+using CuentaApp.Messaging.Consumers;
+using CuentaApp.Services.Services;
+using CuentaApp.Services.Contracts;
+using CuentaApp.Services.Mappers;
+using CuentaApp.Services.Validators;
 
 namespace CuentaAPI;
 
@@ -28,12 +29,12 @@ public static class DependencyInjection
 
         services.AddAutoMapper(typeof(AppMappingProfile));
 
-        services.ConfigureRabbitMqServices(configuration);
+        services.ConfigureMessagingServices(configuration);
 
         return services;
     }
 
-    public static IServiceCollection ConfigureRabbitMqServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection ConfigureMessagingServices(this IServiceCollection services, IConfiguration configuration)
     {
         var rabbitMQSettings = configuration.GetSection("RabbitMQ");
         services.AddMassTransit(x =>

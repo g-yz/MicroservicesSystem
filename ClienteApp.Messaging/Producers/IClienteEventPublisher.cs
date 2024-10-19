@@ -1,6 +1,6 @@
 ﻿using ClienteApp.Data.Models;
 
-namespace ClienteApp.Services.Producers;
+namespace ClienteApp.Messaging.Producers;
 
 public interface IClienteEventPublisher
 {
