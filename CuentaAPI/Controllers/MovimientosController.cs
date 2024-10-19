@@ -26,4 +26,10 @@ public class MovimientosController : ControllerBase
     {
         return Ok(await _movimientoService.GetReporteAsync(filters));
     }
+
+    [HttpGet()]
+    public async Task<IActionResult> Get()
+    {
+        return Ok(await _movimientoService.ListAsync());
+    }
 }

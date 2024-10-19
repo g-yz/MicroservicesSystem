@@ -40,4 +40,13 @@ public class MovimientoRepository : IMovimientoRepository
 
         return await query.ToListAsync();
     }
+
+    public async Task<IEnumerable<Movimiento>> ListAsync()
+    {
+        return await _context.Movimientos
+            .Include(x => x.Cuenta)
+            .Include(x => x.Cuenta.TipoCuenta)
+            .Include(x => x.TipoMovimiento)
+            .ToListAsync();
+    }
 }

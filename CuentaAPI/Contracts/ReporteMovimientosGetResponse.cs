@@ -2,7 +2,7 @@
 
 public class ReporteMovimientosGetResponse
 {
-    public DateTime Fecha { get; set; }
+    public required string Fecha { get; set; }
     public required string Nombre { get; set; }
     public required string NumeroCuenta { get; set; }
     public decimal SaldoInicial { get; set; }

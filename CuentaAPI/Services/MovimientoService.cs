@@ -34,4 +34,10 @@ public class MovimientoService : IMovimientoService
         var movimientos = await _movimientoRepository.GetReporteAsync(filters);
         return _mapper.Map<IEnumerable<ReporteMovimientosGetResponse>>(movimientos);
     }
+
+    public async Task<IEnumerable<MovimientoGetResponse>> ListAsync()
+    {
+        var movimientos = await _movimientoRepository.ListAsync();
+        return _mapper.Map<IEnumerable<MovimientoGetResponse>>(movimientos);
+    }
 }

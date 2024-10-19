@@ -13,7 +13,11 @@ public partial class Movimiento
 
     public DateTime Fecha { get; set; }
 
+    public int TipoMovimientoId { get; set; }
+
     public Guid CuentaId { get; set; }
 
     public virtual Cuenta Cuenta { get; set; } = null!;
+
+    public virtual TiposMovimiento TipoMovimiento { get; set; } = null!;
 }
