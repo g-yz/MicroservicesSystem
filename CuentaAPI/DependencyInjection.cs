@@ -1,5 +1,4 @@
-﻿using CuentaAPI.Commands;
-using CuentaAPI.Consumers;
+﻿using CuentaAPI.Consumers;
 using CuentaAPI.Contracts;
 using CuentaAPI.Models;
 using CuentaAPI.Repositories;
@@ -24,7 +23,6 @@ public static class DependencyInjection
         services.AddTransient<IValidator<CuentaUpdateRequest>, CuentaUpdateRequestValidator>();
         services.AddTransient<IValidator<MovimientoAddRequest>, MovimientoAddRequestValidator>();
         services.AddTransient<IValidator<MovimientoReporteFilter>, MovimientoReporteFilterValidator>();
-        services.AddTransient<IClienteCommandRequest, ClienteCommandRequest>();
 
         services.AddDbContext<CuentaDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 
@@ -47,8 +45,8 @@ public static class DependencyInjection
             x.UsingRabbitMq((context, cfg) =>
             {
                 cfg.Host(rabbitMQSettings["Host"], c => {
-                    c.Username(rabbitMQSettings["Username"]);
-                    c.Password(rabbitMQSettings["Password"]);
+                    c.Username(rabbitMQSettings["Username"]!);
+                    c.Password(rabbitMQSettings["Password"]!);
                 });
                 cfg.ConfigureEndpoints(context);
             });

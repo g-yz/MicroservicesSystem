@@ -25,6 +25,11 @@ public class ClienteRepository : IClienteRepository
         return result > 0;
     }
 
+    public async Task<Cliente?> GetAsync(Guid id)
+    {
+        return await _context.Clientes.FindAsync(id);
+    }
+
     public async Task<bool> UpdateAsync(Guid id, Cliente cliente)
     {
         var clienteModificado = await _context.Clientes.FindAsync(id);

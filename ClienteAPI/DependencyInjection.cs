@@ -1,5 +1,4 @@
-﻿using ClienteAPI.Consumers;
-using ClienteAPI.Contracts;
+﻿using ClienteAPI.Contracts;
 using ClienteAPI.Events;
 using ClienteAPI.Models;
 using ClienteAPI.Repositories;
@@ -35,13 +34,11 @@ public static class DependencyInjection
         var rabbitMQSettings = configuration.GetSection("RabbitMQ");
         services.AddMassTransit(x =>
         {
-            x.AddConsumer<VerificarClienteCommandConsumer>();
-
             x.UsingRabbitMq((context, cfg) =>
             {
                 cfg.Host(rabbitMQSettings["Host"], c => {
-                    c.Username(rabbitMQSettings["Username"]);
-                    c.Password(rabbitMQSettings["Password"]);
+                    c.Username(rabbitMQSettings["Username"]!);
+                    c.Password(rabbitMQSettings["Password"]!);
                 });
                 cfg.ConfigureEndpoints(context);
             });
