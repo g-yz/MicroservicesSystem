@@ -1,4 +1,6 @@
 ﻿using AppShared.Messages;
+using AutoMapper;
+using ClienteAPI.Models;
 using MassTransit;
 
 namespace ClienteAPI.Events;
@@ -6,16 +8,32 @@ namespace ClienteAPI.Events;
 public class ClienteEventPublisher : IClienteEventPublisher
 {
     private readonly IBus _bus;
+    private readonly IMapper _mapper;
 
-    public ClienteEventPublisher(IBus bus)
+    public ClienteEventPublisher(IBus bus, IMapper mapper)
     {
         _bus = bus;
+        _mapper = mapper;
     }
 
-    public void NotificarClienteDesactivado(Guid clienteId)
+    public void PublicarClienteCreado(Cliente cliente)
     {
-        var clientDeletedEvent = new ClienteDesactivadoEvent { ClienteId = clienteId };
-        _bus.Publish(clientDeletedEvent);
-        Console.WriteLine($"Cliente {clienteId} fue desactivado.");
+        var clienteCreated = _mapper.Map<ClienteCreatedEvent>(cliente);
+        _bus.Publish(clienteCreated);
+        Console.WriteLine($"Cliente {clienteCreated.Id} fue creado.");
+    }
+
+    public void PublicarClienteEliminado(Guid id)
+    {
+        var clienteDeleted = new ClienteDeletedEvent() { Id = id };
+        _bus.Publish(clienteDeleted);
+        Console.WriteLine($"Cliente {clienteDeleted.Id} fue eliminado.");
+    }
+
+    public void PublicarClienteModificado(Cliente cliente)
+    {
+        var clienteUpdated = _mapper.Map<ClienteUpdatedEvent>(cliente);
+        _bus.Publish(clienteUpdated);
+        Console.WriteLine($"Cliente {clienteUpdated.Id} fue creado.");
     }
 }

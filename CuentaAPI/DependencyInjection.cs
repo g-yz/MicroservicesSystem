@@ -19,6 +19,7 @@ public static class DependencyInjection
         services.AddScoped<ICuentaService, CuentaService>();
         services.AddScoped<IMovimientoRepository, MovimientoRepository>();
         services.AddScoped<IMovimientoService, MovimientoService>();
+        services.AddScoped<IClienteRepository, ClienteRepository>();
         services.AddTransient<IValidator<CuentaCreateRequest>, CuentaCreateRequestValidator>();
         services.AddTransient<IValidator<CuentaUpdateRequest>, CuentaUpdateRequestValidator>();
         services.AddTransient<IValidator<MovimientoAddRequest>, MovimientoAddRequestValidator>();
@@ -39,7 +40,9 @@ public static class DependencyInjection
         var rabbitMQSettings = configuration.GetSection("RabbitMQ");
         services.AddMassTransit(x =>
         {
-            x.AddConsumer<ClienteDesactivadoEventConsumer>();
+            x.AddConsumer<ClienteCreatedEventConsumer>();
+            x.AddConsumer<ClienteDeletedEventConsumer>();
+            x.AddConsumer<ClienteUpdatedEventConsumer>();
 
             x.UsingRabbitMq((context, cfg) =>
             {

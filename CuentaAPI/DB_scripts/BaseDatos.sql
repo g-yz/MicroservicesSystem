@@ -61,3 +61,18 @@ GO
 
 ALTER TABLE movimientos ADD FOREIGN KEY (tipo_movimiento_id) REFERENCES tipos_movimientos (id)
 GO
+
+-- Redundancia
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'clientes')
+BEGIN
+	CREATE TABLE clientes (
+	  id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+	  nombres varchar(100) NOT NULL,
+	  estado BIT NOT NULL
+	)
+END
+GO
+
+ALTER TABLE cuentas ADD FOREIGN KEY (cliente_id) REFERENCES clientes (id)
+GO

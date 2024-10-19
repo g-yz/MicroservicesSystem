@@ -4,7 +4,7 @@ namespace ClienteAPI.Repositories;
 
 public interface IClienteRepository
 {
-    Task<Guid> CreateAsync(Cliente cliente);
+    Task<Cliente> CreateAsync(Cliente cliente);
     Task<bool> DeleteAsync(Guid id);
     Task<Cliente?> GetAsync(Guid id);
     Task<IEnumerable<Cliente>> ListAsync();

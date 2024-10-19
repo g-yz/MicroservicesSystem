@@ -15,6 +15,8 @@ public partial class CuentaDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Cliente> Clientes { get; set; }
+
     public virtual DbSet<Cuenta> Cuentas { get; set; }
 
     public virtual DbSet<Movimiento> Movimientos { get; set; }
@@ -28,9 +30,25 @@ public partial class CuentaDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Cliente>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__clientes__3213E83F82B2A8F2");
+
+            entity.ToTable("clientes");
+
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("(newid())")
+                .HasColumnName("id");
+            entity.Property(e => e.Estado).HasColumnName("estado");
+            entity.Property(e => e.Nombres)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("nombres");
+        });
+
         modelBuilder.Entity<Cuenta>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__cuentas__3213E83F1C3B0E34");
+            entity.HasKey(e => e.Id).HasName("PK__cuentas__3213E83FA219EE96");
 
             entity.ToTable("cuentas");
 
@@ -48,6 +66,11 @@ public partial class CuentaDbContext : DbContext
                 .HasColumnName("saldo_inicial");
             entity.Property(e => e.TipoCuentaId).HasColumnName("tipo_cuenta_id");
 
+            entity.HasOne(d => d.Cliente).WithMany(p => p.Cuenta)
+                .HasForeignKey(d => d.ClienteId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__cuentas__cliente__48CFD27E");
+
             entity.HasOne(d => d.TipoCuenta).WithMany(p => p.Cuenta)
                 .HasForeignKey(d => d.TipoCuentaId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -56,7 +79,7 @@ public partial class CuentaDbContext : DbContext
 
         modelBuilder.Entity<Movimiento>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__movimien__3213E83F5864FD62");
+            entity.HasKey(e => e.Id).HasName("PK__movimien__3213E83F254F8FA0");
 
             entity.ToTable("movimientos");
 
@@ -89,7 +112,7 @@ public partial class CuentaDbContext : DbContext
 
         modelBuilder.Entity<TiposCuenta>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tipos_cu__3213E83F6A3F7513");
+            entity.HasKey(e => e.Id).HasName("PK__tipos_cu__3213E83F2D4CE8BD");
 
             entity.ToTable("tipos_cuentas");
 
@@ -102,7 +125,7 @@ public partial class CuentaDbContext : DbContext
 
         modelBuilder.Entity<TiposMovimiento>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tipos_mo__3213E83F172B7615");
+            entity.HasKey(e => e.Id).HasName("PK__tipos_mo__3213E83FDFE4E56F");
 
             entity.ToTable("tipos_movimientos");
 

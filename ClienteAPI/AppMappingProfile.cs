@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AppShared.Messages;
+using AutoMapper;
 using ClienteAPI.Contracts;
 using ClienteAPI.Models;
 
@@ -13,5 +14,8 @@ public class AppMappingProfile : Profile
             .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
         CreateMap<Cliente, ClienteGetResponse>()
             .ForMember(dest => dest.Genero, opts => opts.MapFrom(src => src.TipoGenero != null? src.TipoGenero.Descripcion : "Desconocido"));
+
+        CreateMap<Cliente, ClienteCreatedEvent>();
+        CreateMap<Cliente, ClienteUpdatedEvent>();
     }
 }

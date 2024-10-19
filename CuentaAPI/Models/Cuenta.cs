@@ -17,6 +17,8 @@ public partial class Cuenta
 
     public Guid ClienteId { get; set; }
 
+    public virtual Cliente Cliente { get; set; } = null!;
+
     public virtual ICollection<Movimiento> Movimientos { get; set; } = new List<Movimiento>();
 
     public virtual TiposCuenta TipoCuenta { get; set; } = null!;

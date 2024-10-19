@@ -10,11 +10,11 @@ public class ClienteRepository : IClienteRepository
     {
         _context = context;
     }
-    public async Task<Guid> CreateAsync(Cliente cliente)
+    public async Task<Cliente> CreateAsync(Cliente cliente)
     {
         var nuevoCliente = await _context.Clientes.AddAsync(cliente);
         await _context.SaveChangesAsync();
-        return nuevoCliente.Entity.Id;
+        return nuevoCliente.Entity;
     }
 
     public async Task<bool> DeleteAsync(Guid id)

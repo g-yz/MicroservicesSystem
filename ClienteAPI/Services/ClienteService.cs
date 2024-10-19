@@ -34,20 +34,25 @@ public class ClienteService : IClienteService
         if (result.Errors.Any()) throw new ValidationException(result.Errors);
 
         var cliente = _mapper.Map<Cliente>(clienteRequest);
-        return await _clienteRepository.CreateAsync(cliente);
+        var nuevoCliente = await _clienteRepository.CreateAsync(cliente);
+
+        _clientEventPublisher.PublicarClienteCreado(nuevoCliente);
+
+        return nuevoCliente.Id;
     }
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        var result = await _clienteRepository.DeleteAsync(id);
-        if(result) _clientEventPublisher.NotificarClienteDesactivado(id);
-        return result;
+        var status = await _clienteRepository.DeleteAsync(id);
+        if(status) _clientEventPublisher.PublicarClienteEliminado(id);
+        return status;
     }
 
     public async Task<ClienteGetResponse> GetAsync(Guid id)
     {
         var cliente = await _clienteRepository.GetAsync(id);
         if (cliente == null) throw new NotFoundException("El cliente no existe.");
+
         return _mapper.Map<ClienteGetResponse>(cliente);
     }
 
@@ -63,10 +68,11 @@ public class ClienteService : IClienteService
 
         var cliente = await _clienteRepository.GetAsync(id);
         if (cliente == null) throw new NotFoundException("El cliente no existe.");
-        _mapper.Map(clienteUpdateRequest, cliente);
 
+        _mapper.Map(clienteUpdateRequest, cliente);
         var status = await _clienteRepository.UpdateAsync(id, cliente);
-        if(status && !cliente.Estado) _clientEventPublisher.NotificarClienteDesactivado(id);
+
+        if(status) _clientEventPublisher.PublicarClienteModificado(cliente);
 
         return status;
     }

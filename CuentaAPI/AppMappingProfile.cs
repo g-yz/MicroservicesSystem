@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AppShared.Messages;
+using AutoMapper;
 using CuentaAPI.Contracts;
 using CuentaAPI.Models;
 
@@ -30,5 +31,8 @@ public class AppMappingProfile : Profile
             .ForMember(dest => dest.SaldoInicial, opts => opts.MapFrom(src => src.Saldo))
             .ForMember(dest => dest.Movimiento, opts => opts.MapFrom(src => $"{src.TipoMovimiento.Descripcion} de {src.Valor}" ))
             .ForMember(dest => dest.Estado, opts => opts.MapFrom(src => src.Cuenta.Estado));
+
+        CreateMap<ClienteCreatedEvent, Cliente>();
+        CreateMap<ClienteUpdatedEvent, Cliente>();
     }
 }

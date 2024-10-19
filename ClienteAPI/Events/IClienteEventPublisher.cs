@@ -1,6 +1,10 @@
-﻿namespace ClienteAPI.Events;
+﻿using ClienteAPI.Models;
+
+namespace ClienteAPI.Events;
 
 public interface IClienteEventPublisher
 {
-    void NotificarClienteDesactivado(Guid clienteId);
+    void PublicarClienteCreado(Cliente cliente);
+    void PublicarClienteEliminado(Guid id);
+    void PublicarClienteModificado(Cliente cliente);
 }
