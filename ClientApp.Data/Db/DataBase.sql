@@ -1,0 +1,49 @@
+-- CLIENT SERVICE
+
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'clients_service')
+BEGIN
+    CREATE DATABASE clients_service;
+END
+GO
+
+USE clients_service;
+GO
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'persons')
+BEGIN
+	CREATE TABLE persons (
+	  id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+	  full_name varchar(100) NOT NULL,
+	  address VARCHAR(255) NOT NULL,
+	  phone VARCHAR(20) NOT NULL,
+	  document VARCHAR(20),
+	  years TINYINT CHECK (years >= 0),
+	  type_gender_id INT
+	)
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'clients')
+BEGIN
+	CREATE TABLE clients (
+	  id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+	  password VARCHAR(255) NOT NULL,
+	  status BIT NOT NULL
+	)
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'type_genders')
+BEGIN
+	CREATE TABLE type_genders (
+	  id INT IDENTITY(1,1) PRIMARY KEY,
+	  description VARCHAR(50) NOT NULL
+	)
+END
+GO
+
+ALTER TABLE clients ADD FOREIGN KEY (id) REFERENCES persons (id)
+GO
+
+ALTER TABLE persons ADD FOREIGN KEY (type_gender_id) REFERENCES type_genders (id)
+GO

@@ -1,27 +1,29 @@
 services:
 
-  cuentadb:
+  accountapp.db:
     image: mcr.microsoft.com/mssql/server
 
-  clientedb:
+  clientapp.db:
     image: mcr.microsoft.com/mssql/server
 
-  cuentaapi:
-    image: ${DOCKER_REGISTRY-}cuentaapi
-    build:
-      context: .
-      dockerfile: CuentaAPI/Dockerfile
-
-  clienteapi:
-    image: ${DOCKER_REGISTRY-}clienteapi
-    build:
-      context: .
-      dockerfile: ClienteAPI/Dockerfile
+  database.init:
+    image: mcr.microsoft.com/mssql/server
 
   rabbitmq:
     image: rabbitmq:management-alpine
 
+  accountapp.api:
+    image: ${DOCKER_REGISTRY-}accountappapi
+    build:
+      context: .
+      dockerfile: AccountApp.Api/Dockerfile
+
+  clientapp.api:
+    image: ${DOCKER_REGISTRY-}clientappapi
+    build:
+      context: .
+      dockerfile: ClientApp.Api/Dockerfile
+
 volumes:
-  data_cuenta: 
-  data_cliente:
-    
+  data_accountapp: 
+  data_clientapp:

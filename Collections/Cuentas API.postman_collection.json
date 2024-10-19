@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "97eb31cd-fd49-4265-b087-d11ce23dd86b",
-		"name": "Cuentas API",
+		"name": "Accounts API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "14749735"
 	},
@@ -10,13 +10,13 @@
 			"name": "api",
 			"item": [
 				{
-					"name": "cuentas",
+					"name": "accounts",
 					"item": [
 						{
 							"name": "{id}",
 							"item": [
 								{
-									"name": "/api/cuentas/:id",
+									"name": "/api/accounts/:id",
 									"request": {
 										"method": "GET",
 										"header": [
@@ -26,13 +26,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas/:id",
+											"raw": "{{baseUrl}}/api/accounts/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas",
+												"accounts",
 												":id"
 											],
 											"variable": [
@@ -56,13 +56,13 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -83,7 +83,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n    \"id\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\",\n    \"numeroCuenta\": \"1234567890\",\n    \"saldoInicial\": 10000.0000,\n    \"tipoCuenta\": \"Ahorros\",\n    \"estado\": true,\n    \"clienteId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n}"
+											"body": "{\n    \"id\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\",\n    \"accountNumber\": \"1234567890\",\n    \"openingBalance\": 10000.0000,\n    \"typeAccount\": \"Ahorros\",\n    \"status\": true,\n    \"clientId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n}"
 										},
 										{
 											"name": "Bad Request",
@@ -96,13 +96,13 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -136,13 +136,13 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -171,13 +171,13 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -198,7 +198,7 @@
 									]
 								},
 								{
-									"name": "/api/cuentas/:id",
+									"name": "/api/accounts/:id",
 									"request": {
 										"method": "PUT",
 										"header": [
@@ -213,7 +213,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 20000,\n  \"tipoCuentaId\": 1,\n  \"estado\": true,\n  \"clienteId\": \"f390ca26-ea5d-4524-8702-87ba75ceda97\"\n}",
+											"raw": "{\n  \"accountNumber\": \"1234567890\",\n  \"openingBalance\": 20000,\n  \"typeAccountId\": 1,\n  \"status\": true,\n  \"clientId\": \"f390ca26-ea5d-4524-8702-87ba75ceda97\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -222,13 +222,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas/:id",
+											"raw": "{{baseUrl}}/api/accounts/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas",
+												"accounts",
 												":id"
 											],
 											"variable": [
@@ -257,7 +257,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 20000,\n  \"tipoCuentaId\": 1,\n  \"estado\": true,\n  \"clienteId\": \"f390ca26-ea5d-4524-8702-87ba75ceda97\"\n}",
+													"raw": "{\n  \"accountNumber\": \"1234567890\",\n  \"openingBalance\": 20000,\n  \"typeAccountId\": 1,\n  \"status\": true,\n  \"clientId\": \"f390ca26-ea5d-4524-8702-87ba75ceda97\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -266,13 +266,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -311,7 +311,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"openingBalance\": \"<double>\",\n  \"typeAccountId\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"clientId\": \"<uuid>\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -320,13 +320,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -365,7 +365,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"openingBalance\": \"<double>\",\n  \"typeAccountId\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"clientId\": \"<uuid>\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -374,13 +374,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -415,7 +415,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"openingBalance\": \"<double>\",\n  \"typeAccountId\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"clientId\": \"<uuid>\"\n}",
 													"options": {
 														"raw": {
 															"headerFamily": "json",
@@ -424,13 +424,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -451,7 +451,7 @@
 									]
 								},
 								{
-									"name": "/api/cuentas/:id",
+									"name": "/api/accounts/:id",
 									"request": {
 										"method": "DELETE",
 										"header": [
@@ -461,13 +461,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas/:id",
+											"raw": "{{baseUrl}}/api/accounts/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas",
+												"accounts",
 												":id"
 											],
 											"variable": [
@@ -491,13 +491,13 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -531,13 +531,13 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -571,13 +571,13 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -606,13 +606,13 @@
 												"method": "DELETE",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/cuentas/:id",
+													"raw": "{{baseUrl}}/api/accounts/:id",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"cuentas",
+														"accounts",
 														":id"
 													],
 													"variable": [
@@ -635,7 +635,7 @@
 							]
 						},
 						{
-							"name": "/api/cuentas",
+							"name": "/api/accounts",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -645,13 +645,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/cuentas",
+									"raw": "{{baseUrl}}/api/accounts",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
-										"cuentas"
+										"accounts"
 									]
 								}
 							},
@@ -667,13 +667,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -687,7 +687,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n    {\n        \"id\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\",\n        \"numeroCuenta\": \"1234567890\",\n        \"saldoInicial\": 10000.0000,\n        \"tipoCuenta\": \"Ahorros\",\n        \"estado\": true,\n        \"clienteId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n    }\n]"
+									"body": "[\n    {\n        \"id\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\",\n        \"accountNumber\": \"1234567890\",\n        \"openingBalance\": 10000.0000,\n        \"typeAccount\": \"Ahorros\",\n        \"status\": true,\n        \"clientId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n    }\n]"
 								},
 								{
 									"name": "Bad Request",
@@ -700,13 +700,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -733,13 +733,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -761,13 +761,13 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -781,7 +781,7 @@
 							]
 						},
 						{
-							"name": "/api/cuentas",
+							"name": "/api/accounts",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -796,7 +796,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 10000,\n  \"tipoCuentaId\": 1,\n  \"clienteId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n}",
+									"raw": "{\n  \"accountNumber\": \"1234567890\",\n  \"openingBalance\": 10000,\n  \"typeAccountId\": 1,\n  \"clientId\": \"78aa3b59-848f-4922-814d-fd702dc0bec3\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -805,13 +805,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/cuentas",
+									"raw": "{{baseUrl}}/api/accounts",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
-										"cuentas"
+										"accounts"
 									]
 								}
 							},
@@ -832,7 +832,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"numeroCuenta\": \"1234567890\",\n  \"saldoInicial\": 10000,\n  \"tipoCuentaId\": 1,\n  \"clienteId\": \"a59a79be-db74-4041-b71b-835ffedcef6a\"\n}",
+											"raw": "{\n  \"accountNumber\": \"1234567890\",\n  \"openingBalance\": 10000,\n  \"typeAccountId\": 1,\n  \"clientId\": \"a59a79be-db74-4041-b71b-835ffedcef6a\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -841,13 +841,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -879,7 +879,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+											"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"openingBalance\": \"<double>\",\n  \"typeAccountId\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"clientId\": \"<uuid>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -888,13 +888,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -926,7 +926,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+											"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"openingBalance\": \"<double>\",\n  \"typeAccountId\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"clientId\": \"<uuid>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -935,13 +935,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -969,7 +969,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"numeroCuenta\": \"<string>\",\n  \"saldoInicial\": \"<double>\",\n  \"tipoCuentaId\": \"<integer>\",\n  \"estado\": \"<boolean>\",\n  \"clienteId\": \"<uuid>\"\n}",
+											"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"openingBalance\": \"<double>\",\n  \"typeAccountId\": \"<integer>\",\n  \"status\": \"<boolean>\",\n  \"clientId\": \"<uuid>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -978,13 +978,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/cuentas",
+											"raw": "{{baseUrl}}/api/accounts",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"cuentas"
+												"accounts"
 											]
 										}
 									},
@@ -1000,13 +1000,13 @@
 					]
 				},
 				{
-					"name": "movimientos",
+					"name": "movements",
 					"item": [
 						{
 							"name": "reporte",
 							"item": [
 								{
-									"name": "/api/movimientos/reporte",
+									"name": "/api/movements/reporte",
 									"request": {
 										"method": "GET",
 										"header": [
@@ -1016,31 +1016,31 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos/reporte?FechaInicio=1/1/2000&FechaFin=1/1/2030",
+											"raw": "{{baseUrl}}/api/movements/reporte?StartDate=1/1/2000&EndDate=1/1/2030",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos",
+												"movements",
 												"reporte"
 											],
 											"query": [
 												{
-													"key": "ClienteId",
+													"key": "ClientId",
 													"value": "78aa3b59-848f-4922-814d-fd702dc0bec3",
 													"disabled": true
 												},
 												{
-													"key": "FechaInicio",
+													"key": "StartDate",
 													"value": "1/1/2000"
 												},
 												{
-													"key": "FechaFin",
+													"key": "EndDate",
 													"value": "1/1/2030"
 												},
 												{
-													"key": "NumeroCuenta",
+													"key": "AccountNumber",
 													"value": "1234567890",
 													"disabled": true
 												}
@@ -1059,31 +1059,31 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/movimientos/reporte?FechaInicio=1/1/2000&FechaFin=1/1/2030",
+													"raw": "{{baseUrl}}/api/movements/reporte?StartDate=1/1/2000&EndDate=1/1/2030",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"movimientos",
+														"movements",
 														"reporte"
 													],
 													"query": [
 														{
-															"key": "ClienteId",
+															"key": "ClientId",
 															"value": "78aa3b59-848f-4922-814d-fd702dc0bec3",
 															"disabled": true
 														},
 														{
-															"key": "FechaInicio",
+															"key": "StartDate",
 															"value": "1/1/2000"
 														},
 														{
-															"key": "FechaFin",
+															"key": "EndDate",
 															"value": "1/1/2030"
 														},
 														{
-															"key": "NumeroCuenta",
+															"key": "AccountNumber",
 															"value": "1234567890",
 															"disabled": true
 														}
@@ -1100,7 +1100,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "[\n    {\n        \"fecha\": \"10/20/2024\",\n        \"nombre\": \"Meria Perez\",\n        \"numeroCuenta\": \"1234567890\",\n        \"saldoInicial\": 10150.7500,\n        \"movimiento\": 1050.7500,\n        \"saldoDisponible\": 11201.5000,\n        \"estado\": true\n    },\n    {\n        \"fecha\": \"10/20/2024\",\n        \"nombre\": \"Meria Perez\",\n        \"numeroCuenta\": \"1234567890\",\n        \"saldoInicial\": 10000.0000,\n        \"movimiento\": 150.7500,\n        \"saldoDisponible\": 10150.7500,\n        \"estado\": true\n    }\n]"
+											"body": "[\n    {\n        \"date\": \"10/20/2024\",\n        \"fullname\": \"Meria Perez\",\n        \"accountNumber\": \"1234567890\",\n        \"openingBalance\": 10150.7500,\n        \"movement\": 1050.7500,\n        \"availableBalance\": 11201.5000,\n        \"status\": true\n    },\n    {\n        \"date\": \"10/20/2024\",\n        \"fullname\": \"Meria Perez\",\n        \"accountNumber\": \"1234567890\",\n        \"openingBalance\": 10000.0000,\n        \"movement\": 150.7500,\n        \"availableBalance\": 10150.7500,\n        \"status\": true\n    }\n]"
 										},
 										{
 											"name": "Bad Request",
@@ -1113,30 +1113,30 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/movimientos/reporte?ClienteId=<uuid>&FechaInicio=<dateTime>&FechaFin=<dateTime>&NumeroCuenta=<string>",
+													"raw": "{{baseUrl}}/api/movements/reporte?ClientId=<uuid>&StartDate=<dateTime>&EndDate=<dateTime>&AccountNumber=<string>",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"movimientos",
+														"movements",
 														"reporte"
 													],
 													"query": [
 														{
-															"key": "ClienteId",
+															"key": "ClientId",
 															"value": "<uuid>"
 														},
 														{
-															"key": "FechaInicio",
+															"key": "StartDate",
 															"value": "<dateTime>"
 														},
 														{
-															"key": "FechaFin",
+															"key": "EndDate",
 															"value": "<dateTime>"
 														},
 														{
-															"key": "NumeroCuenta",
+															"key": "AccountNumber",
 															"value": "<string>"
 														}
 													]
@@ -1165,30 +1165,30 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/api/movimientos/reporte?ClienteId=<uuid>&FechaInicio=<dateTime>&FechaFin=<dateTime>&NumeroCuenta=<string>",
+													"raw": "{{baseUrl}}/api/movements/reporte?ClientId=<uuid>&StartDate=<dateTime>&EndDate=<dateTime>&AccountNumber=<string>",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"movimientos",
+														"movements",
 														"reporte"
 													],
 													"query": [
 														{
-															"key": "ClienteId",
+															"key": "ClientId",
 															"value": "<uuid>"
 														},
 														{
-															"key": "FechaInicio",
+															"key": "StartDate",
 															"value": "<dateTime>"
 														},
 														{
-															"key": "FechaFin",
+															"key": "EndDate",
 															"value": "<dateTime>"
 														},
 														{
-															"key": "NumeroCuenta",
+															"key": "AccountNumber",
 															"value": "<string>"
 														}
 													]
@@ -1212,30 +1212,30 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/api/movimientos/reporte?ClienteId=<uuid>&FechaInicio=<dateTime>&FechaFin=<dateTime>&NumeroCuenta=<string>",
+													"raw": "{{baseUrl}}/api/movements/reporte?ClientId=<uuid>&StartDate=<dateTime>&EndDate=<dateTime>&AccountNumber=<string>",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"api",
-														"movimientos",
+														"movements",
 														"reporte"
 													],
 													"query": [
 														{
-															"key": "ClienteId",
+															"key": "ClientId",
 															"value": "<uuid>"
 														},
 														{
-															"key": "FechaInicio",
+															"key": "StartDate",
 															"value": "<dateTime>"
 														},
 														{
-															"key": "FechaFin",
+															"key": "EndDate",
 															"value": "<dateTime>"
 														},
 														{
-															"key": "NumeroCuenta",
+															"key": "AccountNumber",
 															"value": "<string>"
 														}
 													]
@@ -1253,7 +1253,7 @@
 							]
 						},
 						{
-							"name": "/api/movimientos",
+							"name": "/api/movements",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -1268,7 +1268,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"valor\": 1050.75,\n  \"cuentaId\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\"\n}",
+									"raw": "{\n  \"value\": 1050.75,\n  \"accountId\": \"be49ac99-fb6d-4afc-8a13-beaef9b6927e\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1277,13 +1277,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/movimientos",
+									"raw": "{{baseUrl}}/api/movements",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
-										"movimientos"
+										"movements"
 									]
 								}
 							},
@@ -1304,7 +1304,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"raw": "{\n  \"value\": \"<double>\",\n  \"accountId\": \"<uuid>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -1313,13 +1313,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},
@@ -1351,7 +1351,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"raw": "{\n  \"value\": \"<double>\",\n  \"accountId\": \"<uuid>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -1360,13 +1360,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},
@@ -1398,7 +1398,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"raw": "{\n  \"value\": \"<double>\",\n  \"accountId\": \"<uuid>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -1407,13 +1407,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},
@@ -1441,7 +1441,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"valor\": \"<double>\",\n  \"cuentaId\": \"<uuid>\"\n}",
+											"raw": "{\n  \"value\": \"<double>\",\n  \"accountId\": \"<uuid>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -1450,13 +1450,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},
@@ -1470,7 +1470,7 @@
 							]
 						},
 						{
-							"name": "/api/movimientos",
+							"name": "/api/movements",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -1480,13 +1480,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/movimientos",
+									"raw": "{{baseUrl}}/api/movements",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
-										"movimientos"
+										"movements"
 									]
 								}
 							},
@@ -1502,13 +1502,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},
@@ -1522,7 +1522,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n    {\n        \"id\": \"920dc367-ab1f-473f-b78b-5f7eb5031e43\",\n        \"fecha\": \"20/10/2024 14:34\",\n        \"numeroCuenta\": \"1234567890\",\n        \"tipo\": \"Ahorros\",\n        \"saldoInicial\": 11201.5000,\n        \"movimiento\": \"Deposito de 1050.7500\",\n        \"estado\": true\n    },\n    {\n        \"id\": \"9660a44d-d2d8-4aa3-bf0e-f6406b4eb30f\",\n        \"fecha\": \"20/10/2024 14:32\",\n        \"numeroCuenta\": \"1234567890\",\n        \"tipo\": \"Ahorros\",\n        \"saldoInicial\": 10150.7500,\n        \"movimiento\": \"Deposito de 150.7500\",\n        \"estado\": true\n    }\n]"
+									"body": "[\n    {\n        \"id\": \"920dc367-ab1f-473f-b78b-5f7eb5031e43\",\n        \"date\": \"20/10/2024 14:34\",\n        \"accountNumber\": \"1234567890\",\n        \"type\": \"Ahorros\",\n        \"openingBalance\": 11201.5000,\n        \"movement\": \"Deposito de 1050.7500\",\n        \"status\": true\n    },\n    {\n        \"id\": \"9660a44d-d2d8-4aa3-bf0e-f6406b4eb30f\",\n        \"date\": \"20/10/2024 14:32\",\n        \"accountNumber\": \"1234567890\",\n        \"type\": \"Ahorros\",\n        \"openingBalance\": 10150.7500,\n        \"movement\": \"Deposito de 150.7500\",\n        \"status\": true\n    }\n]"
 								},
 								{
 									"name": "Bad Request",
@@ -1535,13 +1535,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},
@@ -1568,13 +1568,13 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},
@@ -1596,13 +1596,13 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/movimientos",
+											"raw": "{{baseUrl}}/api/movements",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
-												"movimientos"
+												"movements"
 											]
 										}
 									},

@@ -1,16 +1,16 @@
 #!/bin/bash
 
-/bin/bash /docker-entrypoint-initdb.d/CuentaAPI/DB_scripts/entrypoint.sh
+/bin/bash /docker-entrypoint-initdb.d/AccountApp.Api/Db/entrypoint.sh
 
 if [ $? -ne 0 ]; then
-    echo "Db Cuenta executed."
+    echo "Db Account executed."
     exit 1
 fi
 
-/bin/bash /docker-entrypoint-initdb.d/ClienteAPI/DB_scripts/entrypoint.sh
+/bin/bash /docker-entrypoint-initdb.d/ClientApp.Api/Db/entrypoint.sh
 
 if [ $? -ne 0 ]; then
-    echo "Db cliente executed."
+    echo "Db client executed."
     exit 1
 fi
 

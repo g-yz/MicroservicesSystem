@@ -1,7 +1,7 @@
 services:
 
-  cuentadb:
-    container_name: cuentadb
+  accountapp.db:
+    container_name: accountapp.db
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Passw0rd@Passw0rd
@@ -10,15 +10,15 @@ services:
     ports:
       - "14333:1433"
     volumes:
-      - data_cuenta:/var/opt/mssql
+      - data_accountapp:/var/opt/mssql
     healthcheck:
-      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "cuentadb", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "accountapp.db", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
       interval: 15s
       timeout: 5s
       retries: 5
 
-  clientedb:
-    container_name: clientedb
+  clientapp.db:
+    container_name: clientapp.db
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Passw0rd@Passw0rd
@@ -27,65 +27,26 @@ services:
     ports:
       - "14334:1433"
     volumes:
-      - data_cliente:/var/opt/mssql
+      - data_clientapp:/var/opt/mssql
     healthcheck:
-      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "clientedb", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "clientapp.db", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
       interval: 15s
       timeout: 5s
       retries: 5
 
-  database_init:
-    image: mcr.microsoft.com/mssql/server
+  database.init:
     depends_on:
-      - cuentadb
-      - clientedb
+      - accountapp.db
+      - clientapp.db
     environment:
       - MSSQL_SA_PASSWORD=Passw0rd@Passw0rd
     volumes:
-      - ./CuentaAPI/DB_scripts:/docker-entrypoint-initdb.d/CuentaAPI/DB_scripts
-      - ./ClienteAPI/DB_scripts:/docker-entrypoint-initdb.d/ClienteAPI/DB_scripts
+      - ./AccountApp.Api/Db:/docker-entrypoint-initdb.d/AccountApp.Api/Db
+      - ./ClientApp.Api/Db:/docker-entrypoint-initdb.d/ClientApp.Api/Db
       - ./entrypoint.sh:/docker-entrypoint-initdb.d/entrypoint.sh
     command: /bin/bash /docker-entrypoint-initdb.d/entrypoint.sh
 
     restart: "no"
-
-  cuentaapi:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionStrings__DatabaseConnection=Server=cuentadb;Database=cuentas_servicio;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
-      - RABBITMQ__HOST=rabbitmq
-      - RABBITMQ__USERNAME=guest
-      - RABBITMQ__PASSWORD=guest
-    ports:
-      - "6000:8080"
-      - "6010:8081"
-    depends_on:
-      cuentadb:
-        condition: service_healthy
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-
-  clienteapi:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionStrings__DatabaseConnection=Server=clientedb;Database=clientes_servicio;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
-      - RABBITMQ__HOST=rabbitmq
-      - RABBITMQ__USERNAME=guest
-      - RABBITMQ__PASSWORD=guest
-    ports:
-      - "6001:8080"
-      - "6011:8081"
-    depends_on:
-      clientedb:
-        condition: service_healthy
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
 
   rabbitmq:
     container_name: rabbitmq
@@ -95,3 +56,41 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+
+  accountapp.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__DatabaseConnection=Server=accountapp.db;Database=accounts_service;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USERNAME=guest
+      - RABBITMQ__PASSWORD=guest
+    ports:
+      - "6000:8080"
+      - "6010:8081"
+    depends_on:
+      accountapp.db:
+        condition: service_healthy
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  clientapp.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__DatabaseConnection=Server=clientapp.db;Database=clients_service;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
+      - RABBITMQ__HOST=rabbitmq
+      - RABBITMQ__USERNAME=guest
+      - RABBITMQ__PASSWORD=guest
+    ports:
+      - "6001:8080"
+      - "6011:8081"
+    depends_on:
+      clientapp.db:
+        condition: service_healthy
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

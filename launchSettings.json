@@ -4,8 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "cuentaapi": "StartDebugging",
-        "clienteapi": "StartDebugging"
+        "AccountApp.Api": "StartDebugging",
+        "ClientApp.Api": "StartDebugging"
       }
     }
   }
