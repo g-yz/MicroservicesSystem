@@ -22,7 +22,7 @@ public partial class CuentaDbContext : DbContext
     public virtual DbSet<TiposCuenta> TiposCuentas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=DefaultConnection");
+        => optionsBuilder.UseSqlServer("Name=DatabaseConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

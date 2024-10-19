@@ -4,35 +4,63 @@ services:
     container_name: cuentadb
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=cuenta@Passw0rd
+      - MSSQL_SA_PASSWORD=Passw0rd@Passw0rd
     restart: 
        always
     ports:
       - "14333:1433"
     volumes:
-      - data_cliente:/var/opt/mssql
-      - ./CuentaAPI:/docker-entrypoint-initdb.d
-    command: [ "/bin/bash", "/docker-entrypoint-initdb.d/entrypoint.sh" ]
+      - data_cuenta:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "cuentadb", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   clientedb:
     container_name: clientedb
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=cliente@Passw0rd
+      - MSSQL_SA_PASSWORD=Passw0rd@Passw0rd
     restart: 
        always
     ports:
       - "14334:1433"
+    volumes:
+      - data_cliente:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "clientedb", "-U", "sa", "-P", "Passw0rd@Passw0rd", "-N", "-C", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  database_init:
+    image: mcr.microsoft.com/mssql/server
+    depends_on:
+      - cuentadb
+      - clientedb
+    environment:
+      - MSSQL_SA_PASSWORD=Passw0rd@Passw0rd
+    volumes:
+      - ./CuentaAPI/DB_scripts:/docker-entrypoint-initdb.d/CuentaAPI/DB_scripts
+      - ./ClienteAPI/DB_scripts:/docker-entrypoint-initdb.d/ClienteAPI/DB_scripts
+      - ./entrypoint.sh:/docker-entrypoint-initdb.d/entrypoint.sh
+    command: /bin/bash /docker-entrypoint-initdb.d/entrypoint.sh
+
+    restart: "no"
 
   cuentaapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionStrings__Database=Server=cuentadb;Database=cuentas_servicio;User Id=sa;Password=cuenta@Passw0rd;Encrypt=False;TrustServerCertificate=True;
+      - ConnectionStrings__DatabaseConnection=Server=cuentadb;Database=cuentas_servicio;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
     ports:
       - "6000:8080"
       - "6010:8081"
+    depends_on:
+      cuentadb:
+        condition: service_healthy
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
@@ -42,10 +70,13 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionStrings__Database=Server=clientedb;Database=clientes_servicio;User Id=sa;Password=cliente@Passw0rd;Encrypt=False;TrustServerCertificate=True;
+      - ConnectionStrings__DatabaseConnection=Server=clientedb;Database=clientes_servicio;User Id=sa;Password=Passw0rd@Passw0rd;Encrypt=False;TrustServerCertificate=True;
     ports:
       - "6001:8080"
       - "6061:8081"
+    depends_on:
+      clientedb:
+        condition: service_healthy
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

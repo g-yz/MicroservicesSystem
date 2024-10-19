@@ -14,7 +14,7 @@ public static class DependencyInjection
         services.AddScoped<IMovimientoRepository, MovimientoRepository>();
         services.AddScoped<IMovimientoService, MovimientoService>();
 
-        services.AddDbContext<CuentaDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        services.AddDbContext<CuentaDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 
         services.AddAutoMapper(typeof(AppMappingProfile));
 

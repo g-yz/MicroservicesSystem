@@ -22,7 +22,7 @@ public partial class ClienteDbContext : DbContext
     public virtual DbSet<Persona> Personas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=DefaultConnection");
+        => optionsBuilder.UseSqlServer("Name=DatabaseConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
