@@ -6,6 +6,7 @@ until /opt/mssql-tools18/bin/sqlcmd -S "clientedb" -U sa -P "$MSSQL_SA_PASSWORD"
 
 echo "Setting database..."
 /opt/mssql-tools18/bin/sqlcmd -S "clientedb" -U sa -P "$MSSQL_SA_PASSWORD" -N -C -i /docker-entrypoint-initdb.d/ClienteAPI/DB_scripts/BaseDatos.sql
+/opt/mssql-tools18/bin/sqlcmd -S "clientedb" -U sa -P "$MSSQL_SA_PASSWORD" -N -C -i /docker-entrypoint-initdb.d/ClienteAPI/DB_scripts/BaseDatos.Seeding.sql
 
 echo "Done."
 exit 0

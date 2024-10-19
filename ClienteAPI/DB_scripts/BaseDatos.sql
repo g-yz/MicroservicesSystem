@@ -18,7 +18,7 @@ BEGIN
 	  telefono VARCHAR(20) NOT NULL,
 	  identificacion VARCHAR(20),
 	  edad TINYINT CHECK (edad >= 0),
-	  genero_id INT
+	  tipo_genero_id INT
 	)
 END
 GO
@@ -33,9 +33,9 @@ BEGIN
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'generos')
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'tipos_generos')
 BEGIN
-	CREATE TABLE generos (
+	CREATE TABLE tipos_generos (
 	  id INT IDENTITY(1,1) PRIMARY KEY,
 	  descripcion VARCHAR(50) NOT NULL
 	)
@@ -45,5 +45,5 @@ GO
 ALTER TABLE clientes ADD FOREIGN KEY (id) REFERENCES personas (id)
 GO
 
-ALTER TABLE personas ADD FOREIGN KEY (genero_id) REFERENCES generos (id)
+ALTER TABLE personas ADD FOREIGN KEY (tipo_genero_id) REFERENCES tipos_generos (id)
 GO
